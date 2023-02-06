@@ -1,1 +1,1 @@
-web: gunicorn winter-moments.wsgi
+web: gunicorn wintermoments.wsgi
