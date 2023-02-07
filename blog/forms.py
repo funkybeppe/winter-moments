@@ -1,6 +1,5 @@
 from django import forms
 from .models import Post
-from django_summernote.fields import SummernoteWidget
 
 
 class PostForm(forms.ModelForm):
@@ -12,5 +11,5 @@ class PostForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
             'author': forms.Select(attrs={'class': 'form-control'}),
-            'body': SummernoteWidget(),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),
         }
