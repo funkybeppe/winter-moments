@@ -9,3 +9,8 @@ from .models import Post
 class Home(ListView):
     model = Post
     template_name = 'home.html'
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'post_details.html'
