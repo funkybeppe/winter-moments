@@ -4,8 +4,12 @@
 
 {% block content %}
 
-<h1>Add Blog Post</h1>
+<h1>Add Post</h1>
 
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Post</button>
 
 
 {% endblock %}
