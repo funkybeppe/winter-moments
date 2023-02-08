@@ -11,7 +11,8 @@ from django.urls import reverse_lazy
 class Home(ListView):
     model = Post
     template_name = 'home.html'
-    ordering = ['-id']
+    ordering = ['-created_on']
+    # ordering = ['-id']
 
 
 class PostDetailView(DetailView):
