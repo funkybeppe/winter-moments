@@ -9,7 +9,9 @@
 <ul>
 {% for post in object_list %}
     <li><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> 
-    - {{ post.author.first_name }} {{ post.author.last_name }} - 
+    - {{ post.author.first_name }} 
+    {{ post.author.last_name }} - 
+    {{ post.created_on }} -
     <small><a href="{% url 'update_post' post.pk %}">Edit</a></small>
     <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
     <br/>
