@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Winter Moments | Blog{% endblock %}
+{% block title %}Winter Moments | Categories{% endblock %}
 
 {% block content %}
 
-<h1>Categories</h1>
+<h1>{{ cats }}</h1>
 
 <ul>
-{% for post in object_list %}
+{% for post in category_posts %}
+
     <li>
         <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> 
         - {{ post.category }}
@@ -24,6 +25,7 @@
     <br/>
     {{ post.body|truncatewords:20 }}
     </li>
+
 {% endfor %}
 </ul>
 
