@@ -28,11 +28,13 @@ load_dotenv(Path.joinpath(BASE_DIR, ".env"))
 SECRET_KEY = environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+
 DEBUG = True
 
-ALLOWED_HOSTS = ['winter-moments.herokuapp.com', 'localhost']
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+ALLOWED_HOSTS = ['winter-moments.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = environ.get("ALLOWED_HOSTS", "127.0.0.1").split(",")
 
 # Application definition
 
@@ -51,6 +53,10 @@ INSTALLED_APPS = [
     'blog',
     'members',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
@@ -93,16 +99,15 @@ WSGI_APPLICATION = 'wintermoments.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+# if environ.get("DEV_ENVIRONMENT_DATABASE"):
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
 #     }
-# }
 
-DATABASES = {
-    'default': dj_database_url.parse(environ.get('DATABASE_URL'))
-}
+DATABASES = {'default': dj_database_url.parse(environ.get('DATABASE_URL'))}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
