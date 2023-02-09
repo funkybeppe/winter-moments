@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import Home, PostDetailView, AddPostView, UpdatePostView, DeletePostView
+from .views import Home, PostDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView
 # from . import views
 
 
