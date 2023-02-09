@@ -8,11 +8,16 @@
 <small>By: 
     {{ post.author.first_name }} 
     {{ post.author.last_name }} - 
-    {{ post.created_on }} -
-    
-<a href="{% url 'update_post' post.pk %}">Edit</a></small>
-<small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
-<br/>
+    {{ post.created_on }}
+
+    {% if user.is_authenticated %}
+
+        - <a href="{% url 'update_post' post.pk %}">Edit</a>
+        <a href="{% url 'delete_post' post.pk %}">Delete</a>
+
+    {% endif %}
+
+</small><br/>
 <hr>
 <br/>
 {{ post.body }}
