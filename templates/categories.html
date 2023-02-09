@@ -11,7 +11,6 @@
 
     <li>
         <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> 
-        - {{ post.category }}
         - {{ post.author.first_name }} 
         {{ post.author.last_name }} - 
         {{ post.created_on }}
