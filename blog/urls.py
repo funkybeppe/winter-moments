@@ -9,6 +9,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('post/<int:pk>', PostDetailView.as_view(), name='post-detail'),
     path('add_post/', AddPostView.as_view(), name='add_post'),
+    path('add_category/', AddCategoryView.as_view(), name='add_category'),
     path('post/edit/<int:pk>', UpdatePostView.as_view(), name='update_post'),
     path('post/<int:pk>/delete', DeletePostView.as_view(), name='delete_post'),
 ]
