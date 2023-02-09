@@ -21,7 +21,7 @@
 
     {% endif %}
     <br/>
-    {{ post.body }}
+    {{ post.body|truncatewords:20 }}
     </li>
 {% endfor %}
 </ul>
