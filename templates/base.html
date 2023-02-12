@@ -29,18 +29,22 @@
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+          {% if cat_menu %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categories
             </a>
             <ul class="dropdown-menu">
 
+              {% for item in cat_menu %}
 
-              
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a></li>
+                
+              {% endfor %}
+
             </ul>
           </li>
+          {% endif %}
 
           {% if user.is_authenticated %}
 
