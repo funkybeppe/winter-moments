@@ -11,6 +11,8 @@ for item in choices:
 
 
 class PostForm(forms.ModelForm):
+    body = forms.CharField(widget=CKEditorWidget())
+
     class Meta:
         model = Post
         fields = ('title', 'title_tag', 'author', 'category', 'body')
@@ -28,7 +30,7 @@ class PostForm(forms.ModelForm):
             'category': forms.Select(
                 choices=choice_list, attrs={'class': 'form-control'}),
             # 'body': forms.Textarea(attrs={'class': 'form-control'}),
-            'body': forms.CharField(widget=CKEditorWidget())
+            # 'body': forms.CharField(widget=CKEditorWidget())
         }
 
 
