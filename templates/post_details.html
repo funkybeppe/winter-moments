@@ -28,7 +28,8 @@
     <br/>
     <form action="{% url 'like_post' post.pk %}" method="POST">
         {% csrf_token %}
-        <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-outline-primary btn-sm" >Like</button>
+        <button type="submit", name="post_id", value="{{ post.id }}", class="btn {% if user in post.likes.all %}btn-primary{% else %}btn-outline-primary{% endif %} btn-sm" >Like</button>
+        - {{ post.likes.count }} Likes
     </form>
 
     <br/><br/>
