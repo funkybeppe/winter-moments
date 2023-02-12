@@ -1,5 +1,6 @@
 from django import forms
 from .models import Post, Category
+from ckeditor.widgets import CKEditorWidget
 
 choices = Category.objects.all().values_list('name', 'name')
 
@@ -26,7 +27,8 @@ class PostForm(forms.ModelForm):
             # 'author': forms.Select(attrs={'class': 'form-control'}),
             'category': forms.Select(
                 choices=choice_list, attrs={'class': 'form-control'}),
-            'body': forms.Textarea(attrs={'class': 'form-control'}),
+            # 'body': forms.Textarea(attrs={'class': 'form-control'}),
+            'body': forms.CharField(widget=CKEditorWidget())
         }
 
 
