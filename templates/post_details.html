@@ -11,7 +11,7 @@
     {{ post.created_on }}
 
     {% if user.is_authenticated %}
-        {% if user.if == post.author.id %}
+        {% if user.id == post.author.id %}
 
             - <a href="{% url 'update_post' post.pk %}">Edit</a>
             <a href="{% url 'delete_post' post.pk %}">Delete</a>

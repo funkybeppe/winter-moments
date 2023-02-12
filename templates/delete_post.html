@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
-    {% if user.if == post.author.id %}
+    {% if user.id == post.author.id %}
 
         <h1>Delete Post</h1>
         <br/><br/>
