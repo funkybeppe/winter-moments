@@ -44,6 +44,12 @@
 
             </ul>
           </li>
+          {% else %}
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'category-list' %}">Categories</a>
+          </li>
+
           {% endif %}
 
           {% if user.is_authenticated %}
