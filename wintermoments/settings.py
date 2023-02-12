@@ -30,7 +30,7 @@ SECRET_KEY = environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['winter-moments.herokuapp.com', 'localhost']
@@ -147,8 +147,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = (
-    'cloudinary_storage.storage.StaticHashedCloudinaryStorage')
+# STATICFILES_STORAGE = (
+#     'cloudinary_storage.storage.StaticHashedCloudinaryStorage')
 STATICFILES_DIRS = [Path.joinpath(BASE_DIR, 'static')]
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 
