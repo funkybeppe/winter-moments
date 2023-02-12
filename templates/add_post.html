@@ -12,6 +12,12 @@
             {{ form.as_p }}
             <button class="btn btn-outline-secondary">Post</button>
     </div>
+
+    <script>
+        var name = "{{ user.username }}";
+        document.getElementById("username-field").placeholder = name;
+
+    </script>
 {% else %}  
 
 You're not allowed here!
