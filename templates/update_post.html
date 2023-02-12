@@ -4,14 +4,21 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
-    <h1>Update Post</h1>
+    {% if user.if == post.author.id %}
+        <h1>Update Post</h1>
 
-    <div class="form-group">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-outline-secondary">Update</button>
-    </div>   
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-outline-secondary">Update</button>
+        </div> 
+    {% else %}
+
+        You are not allowed here!
+
+    {% endif %}
+
 {% else %}  
 
 You're not allowed here!
