@@ -11,7 +11,6 @@ for item in choices:
 
 
 class PostForm(forms.ModelForm):
-    body = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Post
