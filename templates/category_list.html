@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Winter Moments | Categories{% endblock %}
+
+{% block content %}
+
+    <h1>Categories</h1>
+
+    {% for item in cat_menu_list %}
+
+        <h4><a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a></h4>
+                
+    {% endfor %}
+
+<br/><br/>
+<a href="{% url 'home' %}" class="btn btn-outline-secondary">Back</a>
+
+{% endblock %}
