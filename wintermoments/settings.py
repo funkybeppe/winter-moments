@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'blog',
     'members',
+    'ckeditor',
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
