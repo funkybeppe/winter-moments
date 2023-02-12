@@ -16,10 +16,12 @@
         {{ post.created_on }}
 
     {% if user.is_authenticated %}
+        {% if user.if == post.author.id %}
 
-        - <small><a href="{% url 'update_post' post.pk %}">Edit</a></small>
-        <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
+            - <small><a href="{% url 'update_post' post.pk %}">Edit</a></small>
+            <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
 
+        {% endif %}
     {% endif %}
     <br/>
     {{ post.body|truncatewords:20 }}
