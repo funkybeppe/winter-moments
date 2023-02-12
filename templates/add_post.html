@@ -14,8 +14,8 @@
     </div>
 
     <script>
-        var name = "{{ user.username }}";
-        document.getElementById("username-field").placeholder = name;
+        var name = "{{ user.id }}";
+        document.getElementById("username-field").value = name;
 
     </script>
 {% else %}  
