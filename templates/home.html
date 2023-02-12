@@ -11,8 +11,7 @@
     <li>
         <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> 
         - <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
-        - {{ post.author.first_name }} 
-        {{ post.author.last_name }} - 
+        - {{ post.author.username }} - 
         {{ post.created_on }}
 
     {% if user.is_authenticated %}
