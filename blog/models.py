@@ -13,7 +13,7 @@ class Post(models.Model):
     body = RichTextField(blank=True, null=True)
     created_on = models.DateField(auto_now_add=True)
     category = models.CharField(max_length=255)
-    snippet = models.CharField(max_length=255, default="Click Link above to read blog post")
+    snippet = models.CharField(max_length=255)
     likes = models.ManyToManyField(User, related_name='blog_post')
 
     def __str__(self):
