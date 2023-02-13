@@ -10,6 +10,7 @@
         <form method="POST">
             {% csrf_token %}
             {{ form.media }}
+            {{ body|safe }}
             {{ form.as_p }}
             <button class="btn btn-outline-secondary">Post</button>
     </div>
