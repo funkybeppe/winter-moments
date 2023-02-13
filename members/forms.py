@@ -58,9 +58,6 @@ class EditProfileForm(UserChangeForm):
     is_active = forms.CharField(
         max_length=50, widget=forms.CheckboxInput(attrs={'class': 'form-check'})
         )
-    date_joined = forms.CharField(
-        max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'})
-        )
 
     class Meta:
         model = User
@@ -74,5 +71,4 @@ class EditProfileForm(UserChangeForm):
             'is_superuser',
             'is_staff',
             'is_active',
-            'date_joined',
         )
