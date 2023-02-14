@@ -9,7 +9,7 @@
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="btn btn-outline-dark">Add Category</button>
+            <button class="btn btn-dark">Add Category <i class="fa-solid fa-inbox category-icon"></i></button>
     </div>
     <br/><br/>
 {% else %}  

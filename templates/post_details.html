@@ -2,82 +2,56 @@
 {% block title %}Winter Moments | {{ post.title_tag }}{% endblock %}
 
 {% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-5" style="width: 100%;">
+            <div class="row">
+                <div class="col-lg-12 col-xl-12">
+                    <div class="card post-details text-bg-light mx-auto mb-3" style="max-width: 100rem;">
+                        <h1 class="card-header">{{ post.title }}</h1>
+                        <div class="card-body">
+                            <p class="card-title"></p>
+                            <br/>
+                            <p class="card-text">{{ post.body | safe }}</p>
+                            <br/>
+                                {% if user.is_authenticated %}
+                                    <form class="d-inline" action="{% url 'like_post' post.pk %}" method="POST">
+                                    <!-- <form action="{% url 'like_post' post.pk %}" method="POST"> -->
+                                        {% csrf_token %}
+                                        {% if user in post.likes.all %}
+                                        <!-- <button type="submit", name="post_id", value="{{ post.id }}", class="btn {% if user in post.likes.all %}btn-primary{% else %}btn-outline-primary{% endif %} btn-sm" >Like</button> -->
+                                        <button type="submit" name="post_id" value="{{post.id}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                        {% else %}
+                                        <button type="submit" name="post_id" value="{{post.id}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                        {% endif %}
+                                    </form>
+                                {% else %}
+                                    <small><strong><a href="{% url 'login' %}">Login</a></strong> to like</small>
+                                    <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                        
 
-<div class="card text-bg-dark mb-3">
-    <h1 class="card-header">{{ post.title }}</h1>
-    <div class="card-body">
-        <p class="card-title">
-            By: {{ post.author.username }} - {{ post.created_on }}
-            {% if user.is_authenticated %}
-                {% if user.id == post.author.id %}
-                    <a href="{% url 'update_post' post.pk %}" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="{% url 'delete_post' post.pk %}" class="btn btn-danger btn-sm">Delete</a>
-                {% endif %}
-            {% endif %}
-        </p>
-      <br/>
-      <p class="card-text">{{ post.body | safe }}</p>
-      <br/>
-        {% if user.is_authenticated %}
-            <form action="{% url 'like_post' post.pk %}" method="POST">
-                {% csrf_token %}
-                <button type="submit", name="post_id", value="{{ post.id }}", class="btn {% if user in post.likes.all %}btn-primary{% else %}btn-outline-primary{% endif %} btn-sm" >Like</button>
-        
-        {% else %}
-
-            <small><a href="{% url 'login' %}">Login</a> to like</small>
-
-        {% endif %}
-
-            - {{ post.likes.count }} Likes
-        </form>
-
-    <br/><br/>
-    <a href="{% url 'home' %}" class="btn btn-outline-dark">Back</a>
-
-        
+                                {% endif %}
+                                    <span class="text-secondary">{{ post.likes.count }} </span>
+                        </div>
+                        <div class="card-footer">
+                            <p>By: {{ post.author.username }} - {{ post.created_on }}</p>
+                                {% if user.is_authenticated %}
+                                    {% if user.id == post.author.id %}
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
+                                        <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary btn-sm me-md-2">Edit</a>
+                                        <a href="{% url 'delete_post' post.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                                    </div>
+                                    {% endif %}
+                                {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <br/><br/>
+    <a href="{% url 'home' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
 </div>
 <br/><br/>
-
-
-    <!-- <h1>{{ post.title }}</h1>
-    <small>By: 
-        {{ post.author.username }} - 
-        {{ post.created_on }}
-
-        {% if user.is_authenticated %}
-            {% if user.id == post.author.id %}
-
-                - <a href="{% url 'update_post' post.pk %}">Edit</a>
-                <a href="{% url 'delete_post' post.pk %}">Delete</a>
-
-            {% endif %}
-        {% endif %}
-
-    </small><br/>
-    <hr>
-    <br/>
-    {{ post.body|safe }}
-
-    <br/><br/>
-    <hr>
-    <br/>
-    {% if user.is_authenticated %}
-        <form action="{% url 'like_post' post.pk %}" method="POST">
-            {% csrf_token %}
-            <button type="submit", name="post_id", value="{{ post.id }}", class="btn {% if user in post.likes.all %}btn-primary{% else %}btn-outline-primary{% endif %} btn-sm" >Like</button>
-        
-    {% else %}
-
-            <small><a href="{% url 'login' %}">Login</a> to like</small>
-
-    {% endif %}
-
-            - {{ post.likes.count }} Likes
-        </form>
-
-    <br/><br/>
-    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Back</a> -->
 
 {% endblock %}

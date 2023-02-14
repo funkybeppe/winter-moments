@@ -8,36 +8,80 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
+/* a:link { text-decoration: none; }
 
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
 
-.post-title {
-    margin-top: 20%;
-    margin-left: 5%;
-}
+a:visited { text-decoration: none; }
 
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; } */
+
 
 footer {
   bottom: 0;
   width: 100%;
 }
 
+.copyright-p {
+    font-size: x-small;
+}
+
+.post-details {
+    opacity: 0.9;
+}
+
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
+.author {
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+.category,
+.category-dropdown {
+    text-transform: capitalize;
+}
+
+.image-container {
+    position: relative;
+}
+
+.post-link {
+    text-decoration: none;
+}
+
+.update-icon,
+.register-icon,
+.login-icon,
+.logout-icon,
+.profile-icon,
+.plus-icon,
+.post-button,
+.home-icon,
+.category-icon,
+.back-arrow {
+    color: white;
+}

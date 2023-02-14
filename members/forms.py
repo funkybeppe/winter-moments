@@ -46,18 +46,6 @@ class EditProfileForm(UserChangeForm):
     username = forms.CharField(
         max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'})
         )
-    last_login = forms.CharField(
-        max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'})
-        )
-    is_superuser = forms.CharField(
-        max_length=50, widget=forms.CheckboxInput(attrs={'class': 'form-check'})
-        )
-    is_staff = forms.CharField(
-        max_length=50, widget=forms.CheckboxInput(attrs={'class': 'form-check'})
-        )
-    is_active = forms.CharField(
-        max_length=50, widget=forms.CheckboxInput(attrs={'class': 'form-check'})
-        )
 
     class Meta:
         model = User
@@ -67,8 +55,4 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'email',
             'password',
-            'last_login',
-            'is_superuser',
-            'is_staff',
-            'is_active',
         )

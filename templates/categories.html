@@ -6,31 +6,38 @@
 
 <h1>{{ cats }}</h1>
 
-<ul>
+
 {% for post in category_posts %}
 
-    <li>
-        <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> 
-        - {{ post.author.first_name }} 
-        {{ post.author.last_name }} - 
-        {{ post.created_on }}
-
-    {% if user.is_authenticated %}
-
-        - <small><a href="{% url 'update_post' post.pk %}">Edit</a></small>
-        <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
-
-    {% endif %}
-    <br/>
-    {{ post.body|truncatewords:20 }}
-    </li>
-
+<div class="col-md-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="image-container">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top"
+                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                {% else %}
+                <img class="card-img-top" src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676380440/pexels-mati-mango-3193846_gglim6.jpg">
+                {% endif %}
+                <div class="author">
+                    <h6>{{ post.author.username }}</h6>
+                </div>
+            </div>
+            <div>
+                <h3 class="card-title">{{ post.title }}</h2>
+                <p class="card-text category">{{ post.category }}</p>
+                <a href="{% url 'post-detail' post.pk  %}" class="btn btn-dark btn-sm post-link">View Post</a>
+            </div>
+            <hr />
+            <p class="card-text text-muted h6">
+                {{ post.created_on}} 
+                <i class="far fa-heart"></i>
+                {{ post.likes.count }}
+            </p>
+        </div>
+    </div>
+</div>
 {% endfor %}
-</ul>
-
-{% else %}
-
-    <h2>Sorry, this page does not exist! =(</h2>
 
 {% endif %}
 

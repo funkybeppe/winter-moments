@@ -7,11 +7,11 @@
 
     {% for item in cat_menu_list %}
 
-        <h4><a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a></h4>
+        <h4><a class="dropdown-item category-dropdown" href="{% url 'category' item|slugify %}">{{ item }}</a></h4>
                 
     {% endfor %}
 
 <br/><br/>
-<a href="{% url 'home' %}" class="btn btn-outline-dark">Back</a>
+<a href="{% url 'home' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
 <br/><br/>
 {% endblock %}
