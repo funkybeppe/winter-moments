@@ -2,18 +2,6 @@
     background-color: #a3b0ca;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
 
 .masthead {
     margin-top: 10px;
