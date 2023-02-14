@@ -3,8 +3,45 @@
 
 {% block content %}
 
+<div class="card">
+    <h1 class="card-header">{{ post.title }}</h1>
+    <div class="card-body">
+        <p class="card-title">
+            By: {{ post.author.username }} - {{ post.created_on }}
+            {% if user.is_authenticated %}
+                {% if user.id == post.author.id %}
+                    <a href="{% url 'update_post' post.pk %}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{% url 'delete_post' post.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                {% endif %}
+            {% endif %}
+        </p>
+      <br/>
+      <p class="card-text">{{ post.body | safe }}</p>
+      <br/>
+        {% if user.is_authenticated %}
+            <form action="{% url 'like_post' post.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit", name="post_id", value="{{ post.id }}", class="btn {% if user in post.likes.all %}btn-primary{% else %}btn-outline-primary{% endif %} btn-sm" >Like</button>
+        
+        {% else %}
 
-    <h1>{{ post.title }}</h1>
+            <small><a href="{% url 'login' %}">Login</a> to like</small>
+
+        {% endif %}
+
+            - {{ post.likes.count }} Likes
+        </form>
+
+    <br/><br/>
+    <a href="{% url 'home' %}" class="btn btn-outline-dark">Back</a>
+
+        
+    </div>
+</div>
+<br/><br/>
+
+
+    <!-- <h1>{{ post.title }}</h1>
     <small>By: 
         {{ post.author.username }} - 
         {{ post.created_on }}
@@ -41,6 +78,6 @@
         </form>
 
     <br/><br/>
-    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Back</a>
+    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Back</a> -->
 
 {% endblock %}
