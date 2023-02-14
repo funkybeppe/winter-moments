@@ -1,5 +1,13 @@
-.main-bg {
+/* .main-bg {
     background-color: #a3b0ca;
+} */
+
+.main-bg{
+    background-image: url("https://res.cloudinary.com/hl3mshpcy/image/upload/b_rgb:ffffff,o_51/v1676376227/pexels-simon-berger-688660_qlofre.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 
