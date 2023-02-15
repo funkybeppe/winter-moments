@@ -1,28 +1,25 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
 
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'})
         )
-    first_name = forms.CharField(
-        max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'})
+    new_password1 = forms.CharField(
+        max_length=50, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'})
         )
-    last_name = forms.CharField(
-        max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'})
+    new_password2 = forms.CharField(
+        max_length=50, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'})
         )
 
     class Meta:
         model = User
         fields = (
-            'username',
-            'first_name',
-            'last_name',
-            'email',
-            'password1',
-            'password2'
+            'old_password',
+            'new_password1',
+            'new_password2',
         )
 
     def __init__(self, *args, **kwargs):
@@ -55,4 +52,27 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'email',
             'password',
+        )
+
+
+class PasswordChangingForm(PasswordChangeForm):
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+        )
+    first_name = forms.CharField(
+        max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'})
+        )
+    last_name = forms.CharField(
+        max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'})
+        )
+
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2'
         )
