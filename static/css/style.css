@@ -2,6 +2,11 @@
     background-color: #a3b0ca;
 } */
 
+html {
+    background-color: #292b2c;
+    scroll-behavior: smooth;
+}
+
 .main-bg{
     background-image: url("https://res.cloudinary.com/hl3mshpcy/image/upload/b_rgb:ffffff,o_51/v1676376227/pexels-simon-berger-688660_qlofre.jpg");
     background-repeat: no-repeat;

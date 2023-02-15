@@ -158,6 +158,7 @@ STATICFILES_STORAGE = (
     'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/ckeditor.js"
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
