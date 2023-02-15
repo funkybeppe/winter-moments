@@ -7,10 +7,9 @@
     <h1>Add Post</h1>
 
     <div class="form-group">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.media }}
-            {{ body|safe }}
             {{ form.as_p }}
             <button class="btn btn-dark">Post <i class="fa-solid fa-paper-plane post-button"></i></button>
     </div>

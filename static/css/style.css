@@ -38,9 +38,9 @@ footer {
     font-size: x-small;
 }
 
-.post-details {
+/* .post-details {
     opacity: 0.9;
-}
+} */
 
 .btn-like {
     color: #E84610;
@@ -73,6 +73,7 @@ footer {
     text-decoration: none;
 }
 
+.delete-icon,
 .password-icon,
 .update-icon,
 .register-icon,
@@ -85,4 +86,9 @@ footer {
 .category-icon,
 .back-arrow {
     color: white;
+}
+
+.post-image {
+    max-height: 400px;
+    max-width: 400px;
 }

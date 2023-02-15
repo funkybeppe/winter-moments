@@ -8,37 +8,42 @@
 
 
 {% for post in category_posts %}
-
-<div class="col-md-4">
-    <div class="card mb-4">
-        <div class="card-body">
-            <div class="image-container">
-                {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img-top"
-                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                {% else %}
-                <img class="card-img-top" src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676380440/pexels-mati-mango-3193846_gglim6.jpg">
-                {% endif %}
-                <div class="author">
-                    <h6>{{ post.author.username }}</h6>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-5" style="width: 100%;">
+            <div class="row">
+                <div class="col-lg-12 col-xl-12">
+                    <div class="card mb-4 mx-auto mb-3" style="max-width: 50rem;">
+                        <div class="card-body">
+                            <div class="image-container">
+                                <img class="card-img-top image-fluid" src="{{ post.featured_image.url }}" width="100%" height="auto">
+                                <div class="author">
+                                    <h6>{{ post.author.username }}</h6>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text category">{{ post.category }}</p>
+                                <a href="{% url 'post-detail' post.pk  %}" class="btn btn-dark btn-sm post-link">View Post</a>
+                            </div>
+                            <hr />
+                            <p class="card-text text-muted h6">
+                                {{ post.created_on}} 
+                                <i class="far fa-heart"></i>
+                                {{ post.likes.count }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <h3 class="card-title">{{ post.title }}</h2>
-                <p class="card-text category">{{ post.category }}</p>
-                <a href="{% url 'post-detail' post.pk  %}" class="btn btn-dark btn-sm post-link">View Post</a>
-            </div>
-            <hr />
-            <p class="card-text text-muted h6">
-                {{ post.created_on}} 
-                <i class="far fa-heart"></i>
-                {{ post.likes.count }}
-            </p>
         </div>
     </div>
 </div>
+
 {% endfor %}
 
 {% endif %}
-
+<br/>
+<a href="{% url 'category-list' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
+<br/><br/><br/>
 {% endblock %}
