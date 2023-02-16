@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 mt-5" style="width: 100%;">
+        <div class="col-12 mt-3" style="width: 100%;">
             <div class="row">
                 <div class="col-lg-12 col-xl-12">
                     <div class="card text-bg-light mx-auto mb-3" style="max-width: 60rem;">
@@ -23,7 +23,6 @@
                                 </div>
                             </div>
                         </div>
-
 
                         <h1 class="card-header text-center">{{ post.title }}</h1>
                         <div class="card-body text-center">
@@ -60,31 +59,14 @@
                                     </div>
                                     {% endif %}
                                 {% endif %}
-                                <!-- <img class="rounded-circle" src="{{ post.author.profile.profile_picture.url }}" width=75 height=75 alt=""> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <br/><br/>
     <a href="{% url 'home' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
 </div>
 <br/><br/>
-<!-- <div class="card mb-3" style="max-width: 60rem;">
-    <div class="row">
-        <div class="col-2">
-            <img src="{{ post.author.profile.profile_picture.url }}" class="img-fluid rounded-start" alt="Profile Picture" height=75 width=75>
-        </div>
-        <div class="col-10">
-            <div class="card-body">
-                <h5 class="card-title">
-                    {{ post.author.username }}
-                </h5>
-                <p class="card-text">{{ post.author.profile.bio }}</p>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 {% endblock %}
