@@ -5,15 +5,12 @@ from .forms import PostForm, EditForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
-# def home(request):
-#     return render(request, 'home.html', {})
 
 
 class Home(ListView):
     model = Post
     template_name = 'home.html'
     ordering = ['-created_on']
-    # ordering = ['-id']
 
     def get_context_data(self, *args, **kwargs):
         cat_menu = Category.objects.all()
