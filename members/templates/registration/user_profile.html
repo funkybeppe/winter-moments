@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Profile{% endblock %}
+{% load static %}
 {% block content %}
 
 <h2>Profile</h2>
 
-{{ profile_user }}
 
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        {% if profile_user.profile_picture %}
+        <img src="{{ profile_user.profile_picture.url }}" class="img-fluid rounded-start" alt="Profile Picture">
+        {% else %}
+        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676800849/1144760_he7oam.png" class="img-fluid rounded-start" alt="Default Profile Picture">
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ profile_user }}</h5>
+          <p class="card-text">{{ profile_user.user.first_name }} {{ profile_user.user.last_name }}</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
