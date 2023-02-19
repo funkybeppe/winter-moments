@@ -38,9 +38,15 @@ class ProfilePageView(DetailView):
     template_name = 'registration/user_profile.html'
 
     def get_context_data(self, *args, **kwargs):
-        users = Profile.objects.all()
         context = super(ProfilePageView, self).get_context_data(*args, **kwargs)
         profile_user = get_object_or_404(Profile, id=self.kwargs['pk'])
 
         context['profile_user'] = profile_user
         return context
+
+
+class EditProfilePageView(generic.UpdateView):
+    model = Profile
+    template_name = 'registration/edit_profile_page.html'
+    fields = ['bio', 'profile_picture', 'facebook_link', 'instagram_link', 'twitter_link']
+    success_url = reverse_lazy('home')

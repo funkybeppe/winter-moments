@@ -10,16 +10,31 @@
     <div class="row g-0">
       <div class="col-md-4">
         {% if profile_user.profile_picture %}
-        <img src="{{ profile_user.profile_picture.url }}" class="img-fluid rounded-start" alt="Profile Picture">
+        <img src="{{ profile_user.profile_picture.url }}" class="img-fluid rounded-start" alt="Profile Picture" style="max-height: 200px;">
         {% else %}
-        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676800849/1144760_he7oam.png" class="img-fluid rounded-start" alt="Default Profile Picture">
+        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676800849/1144760_he7oam.png" class="img-fluid rounded-start" alt="Default Profile Picture" style="max-height: 200px;">
         {% endif %}
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{ profile_user }}</h5>
           <p class="card-text">{{ profile_user.user.first_name }} {{ profile_user.user.last_name }}</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text">
+            {% if profile_user.facebook_url %}
+            <a href="{{ profile_user.facebook.url }}">Facebook</a>
+            {% endif %}
+
+            {% if profile_user.instagram_url %}
+            <a href="{{ profile_user.instagram.url }}">Instagram</a>
+            {% endif %}
+
+            {% if profile_user.twitter_url %}
+            <a href="{{ profile_user.twitter.url }}">Twitter</a>
+            {% endif %}
+
+          </p>
+          
+          <p class="card-text"><small class="text-muted">{{ profile_user.bio }}</small></p>
         </div>
       </div>
     </div>
