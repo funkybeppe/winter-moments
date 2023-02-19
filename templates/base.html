@@ -65,30 +65,30 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'add_post' %}">Add Post <i class="fa-solid fa-plus plus-icon"></i></a>
+              <a class="nav-link" href="{% url 'add_post' %}">New Post <i class="fa-solid fa-plus plus-icon"></i></a>
             </li>
 
             {% if user.is_staff %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'add_category' %}">Add Category <i class="fa-solid fa-plus plus-icon"></i></a>
+              <a class="nav-link" href="{% url 'add_category' %}">Add Category <i class="fa-solid fa-list-ul plus-icon"></i></a>
             </li>
             {% endif %}
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Profile <i class="fa-solid fa-user profile-icon"></i>
+                {{ user.username }}
               </a>
               <ul class="dropdown-menu">
 
                 {% if user.profile.id %}
-                <li><a class="dropdown-item" href="{% url 'profile_page' user.profile.id %}">My Profile</a></li>
-                <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'profile_page' user.profile.id %}">My Profile <i class="fa-solid fa-user profile-icon"></i></a></li>
+                <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile <i class="fa-solid fa-user-pen profile-icon"></i></a></li>
                 {% else %}
                 <li><a class="dropdown-item" href="{% url 'create_profile' %}">Create Profile</a></li>
                 {% endif %}
 
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Settings</a></li>
+                <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Settings <i class="fa-solid fa-gears profile-icon"></i></a></li>
               </ul>
             </li>
 
