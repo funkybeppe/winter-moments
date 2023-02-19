@@ -6,7 +6,6 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 
 
-
 class Home(ListView):
     model = Post
     template_name = 'home.html'

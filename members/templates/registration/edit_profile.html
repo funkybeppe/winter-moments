@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}Winter Moments | Edit Profile{% endblock %}
+{% block title %}Winter Moments | Settings{% endblock %}
 {% block content %}
 
 
-<h1>Edit Profile</h1>
-<br/><br/>
-
-<h4>{{ user.profile.bio }}</h4>
+<h1>Settings</h1>
 
 <br/><br/>
 <div class="form-group">
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-dark">Update <i class="fa-solid fa-pen-to-square update-icon"></i></button>
+        <br/>
+        <button class="btn btn-dark">Update Settings <i class="fa-solid fa-gear update-icon"></i></button>
 </div>
-<br/><br/>
+<br/>
 
 {% endblock %}

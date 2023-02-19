@@ -5,7 +5,9 @@
 
 
 {% if user.is_authenticated %}
+    {% if user.id == profile.user.id %}
     <h1>Edit Profile</h1>
+    <br/>
 
     <div class="form-group">
         <form method="POST" enctype="multipart/form-data">
@@ -15,10 +17,20 @@
     </div>
 
     <br/><br/>
+
+    {% else %}
+
+    You're not allowed to modify this profile!
+
+    {% endif %}
+
+
 {% else %}  
 
 You're not allowed here!
 
 {% endif %}
+
+
 
 {% endblock %}
