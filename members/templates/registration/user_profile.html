@@ -6,30 +6,30 @@
 <h2>Profile</h2>
 
 
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3 text-center" style="max-width: 540px;">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-4 mt-2 mb-2">
         {% if profile_user.profile_picture %}
         <img src="{{ profile_user.profile_picture.url }}" class="img-fluid rounded-start" alt="Profile Picture" style="max-height: 200px;">
         {% else %}
-        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676800849/1144760_he7oam.png" class="img-fluid rounded-start" alt="Default Profile Picture" style="max-height: 200px;">
+        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676824906/8379828_p23kkn.png" class="img-fluid rounded-start" alt="Default Profile Picture" style="max-height: 200px;">
         {% endif %}
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{ profile_user }}</h5>
           <p class="card-text">{{ profile_user.user.first_name }} {{ profile_user.user.last_name }}</p>
-          <p class="card-text">
-            {% if profile_user.facebook_url %}
-            <a href="{{ profile_user.facebook.url }}">Facebook</a>
+          <p class="card-text h5">
+            {% if profile_user.facebook_link %}
+            <a href="{{ profile_user.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
             {% endif %}
 
-            {% if profile_user.instagram_url %}
-            <a href="{{ profile_user.instagram.url }}">Instagram</a>
+            {% if profile_user.instagram_link %}
+            <a href="{{ profile_user.instagram_url }}"><i class="fab fa-instagram"></i></a>
             {% endif %}
 
-            {% if profile_user.twitter_url %}
-            <a href="{{ profile_user.twitter.url }}">Twitter</a>
+            {% if profile_user.twitter_link %}
+            <a href="{{ profile_user.twitter_url }}"><i class="fab fa-twitter"></i></a>
             {% endif %}
 
           </p>
@@ -39,4 +39,5 @@
       </div>
     </div>
   </div>
+  <a href="{% url 'home' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
 {% endblock %}

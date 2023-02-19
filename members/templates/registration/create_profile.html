@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Winter Moments | Create Profile{% endblock %}
+{% load static %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    <h1>Create Profile</h1>
+
+    <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button class="btn btn-dark">Create <i class="fa-solid fa-paper-plane post-button"></i></button>
+    </div>
+
+    <br/>
+{% else %}  
+
+You're not allowed here!
+
+{% endif %}
+
+{% endblock %}
