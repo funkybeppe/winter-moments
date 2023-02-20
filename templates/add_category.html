@@ -8,8 +8,13 @@
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="mb-3">
+                <label for="id_name" class="form-label">Category Name</label>
+                <input type="text" name="name" maxlength="255" required class="form-control" id="id_name">
+            </div>
+            <br/>
             <button class="btn btn-dark">Add Category <i class="fa-solid fa-inbox category-icon"></i></button>
+        </form>
     </div>
     <br/><br/>
 {% else %}  

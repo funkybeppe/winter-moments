@@ -47,7 +47,10 @@
                                     <span class="text-secondary"><i class="far fa-heart"></i></span>
                                         
                                 {% endif %}
-                                    <span class="text-secondary">{{ post.likes.count }} </span>
+                                    <span class="text-secondary">{{ post.likes.count }}</span>
+                                    &nbsp;
+                                    <i class="far fa-comment-dots"></i>
+                                    <span class="text-secondary">{{ post.comments.count }}</span>
                             
                             <p class="card-text"> 
                                 <div class="accordion" id="accordionExample">
@@ -62,7 +65,7 @@
                                             {% if not post.comments.all %}
                                             No Comments Yet.<br> 
                                             {% else %}
-                                            <small><a href="#">Add Comment</a></small>
+                                            <small><a href="{% url 'add_comment' post.pk %}">Add Comment</a></small>
                                             <br/><br/>
                                             {% for comment in post.comments.all %}
                                             <small>{{ comment.name }}</small>
@@ -73,7 +76,7 @@
                                             <br/><br/>
                                             {% endfor %}
                                             {% endif %}
-                                            <small><a href="#">Add Comment</a></small>
+                                            <small><a href="{% url 'add_comment' post.pk %}">Add Comment</a></small>
                                             <br/>
                                         </div>
                                       </div>

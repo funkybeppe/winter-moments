@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Update Post{% endblock %}
 {% block content %}
-{% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
@@ -10,7 +9,6 @@
         <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
-                {{ form.media }}
                 {{ form.as_p }}
                 <button class="btn btn-dark">Update <i class="fa-solid fa-pen-to-square update-icon"></i></button>
         </div> 

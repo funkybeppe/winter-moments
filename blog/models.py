@@ -58,4 +58,7 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        return str(self.user)
+
+    def __str__(self):
         return '%s - %s' % (self.post.title, self.name)

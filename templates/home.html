@@ -25,9 +25,12 @@
                             </div>
                             <hr />
                             <p class="card-text text-muted h6">
-                                {{ post.created_on}} 
+                                {{ post.created_on}}
+                                &nbsp;
                                 <i class="far fa-heart"></i>
                                 {{ post.likes.count }}
+                                <i class="far fa-comment-dots"></i>
+                                {{ post.comments.count }}
                             </p>
                         </div>
                     </div>
