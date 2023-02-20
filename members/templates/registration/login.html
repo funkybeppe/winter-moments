@@ -2,25 +2,29 @@
 {% block title %}Winter Moments | Login{% endblock %}
 {% block content %}
 
-
-<h1>Login</h1>
-<br/>
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="InputUsername" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" id="InputUsername">
-        </div>
-        <div class="mb-3">
-            <label for="InputPassword" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="InputPassword">
-            <div class="form-text">Not a User? <a href="{% url 'register' %}">Register</a></div>
-        </div>
+<br/><br/>
+<div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
+    <div class="card-body">
+        <h1 class="card-title">Login</h1>
         <br/>
-        <button class="btn btn-dark">Login <i class="fa-solid fa-right-to-bracket login-icon"></i></button>
-    </form>
-</div>   
-
+        <div class="cardform-group">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="InputUsername" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="InputUsername">
+                </div>
+                <div class="mb-3">
+                    <label for="InputPassword" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="InputPassword">
+                    <br/>
+                    <div class="form-text text-white">Not a User? &nbsp;<small><em><a href="{% url 'register' %}">Register</a></em></small></div>
+                </div>
+                <br/>
+                <button class="btn btn-light text-dark">Login <i class="fa-solid fa-right-to-bracket"></i></button>
+            </form>
+        </div>   
+    </div>
+</div>
 
 {% endblock %}

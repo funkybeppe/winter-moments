@@ -4,12 +4,11 @@
 }
 
 html {
-    background-color: #292b2c;
     scroll-behavior: smooth;
 }
 
 .main-bg{
-    background-image: url("https://res.cloudinary.com/hl3mshpcy/image/upload/b_rgb:ffffff,o_51/v1676376227/pexels-simon-berger-688660_qlofre.jpg");
+    background-image: url("https://res.cloudinary.com/hl3mshpcy/image/upload/e_blur:132,o_74/v1676911230/pexels-pixabay-235621_bp6nxd.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -22,6 +21,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 
 footer {
   bottom: 0;

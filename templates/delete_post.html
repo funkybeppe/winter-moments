@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Delete Post{% endblock %}
 {% block content %}
-{% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}

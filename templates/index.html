@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Winter Moments{% endblock %}
+{% load static %}
+
+{% block content %}
+
+<!-- Header-->
+<header class="py-5">
+    <div class="card border-secondary bg-dark container px-5">
+        <br/>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <img class="card-img-top" src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676374654/logo-no-background_qj7m4q.png" alt="Blog Logo" >
+                    <p class="lead text-white mb-4">
+                        <br/><br/>
+                        Welcome to our winter sports blog, where we share everything you need to know about hitting the slopes and enjoying the snow!
+                    </p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <p class="lead text-white-50 mb-4">Not a User? &nbsp;<small><em><a class="text-white" href="{% url 'register' %}">Register</a></em></small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Features section-->
+<section class="card bg-dark text-white py-5 border-secondary" id="features">
+    <div class="container px-5 my-3">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                <h2 class="h4 fw-bolder">Why Join Us</h2>
+                <p>Our blog is a community of winter sports enthusiasts who are passionate about sharing their experiences and knowledge with others. By joining our blog, you'll be part of a community of like-minded individuals who share your passion for winter sports, making new friends, and discovering new adventures.</p>
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                <h2 class="h4 fw-bolder">Discover New Places</h2>
+                <p>We also love to explore the best winter destinations around the world, from the popular ski resorts to the lesser-known hidden gems. Get ready to discover new places to shred, relax and enjoy winter wonderlands!</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                <h2 class="h4 fw-bolder">Relax</h2>
+                <p>So, grab your hot cocoa, cozy up, and join us on our journey through the snowy mountains. We can't wait to share our love of winter sports with you!</p>
+            </div>
+        </div>
+        <br/>
+        <div class="card bg-dark border-dark">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p><small>"To appreciate the beauty of a snowflake it is necessary to stand out in the cold."</small></p>
+                <footer class="blockquote-footer text-white"><small><cite title="Source Title">Aristotle</cite></small></footer>
+              </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+<br/><br/>
+
+
+{% endblock %}

@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.views.generic import (
+    ListView, DetailView, CreateView, UpdateView, DeleteView
+    )
 
 
 class Home(ListView):
@@ -96,3 +98,7 @@ def LikeView(request, pk):
         liked = True
 
     return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
+
+
+def index(request):
+    return render(request, 'index.html')

@@ -1,11 +1,19 @@
 from django.urls import path, include
-from .views import Home, PostDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, CategoryListView, LikeView, AddCommentView
 from . import views
+from .views import (
+    index,
+    Home,
+    PostDetailView,
+    AddPostView, UpdatePostView,
+    DeletePostView, AddCategoryView,
+    CategoryView, CategoryListView,
+    LikeView,
+    AddCommentView)
 
 
 urlpatterns = [
-    # path('', views.home, name="home"),
-    path('', Home.as_view(), name='home'),
+    path('', views.index, name='index'),
+    path('home/', Home.as_view(), name='home'),
     path('summernote/', include('django_summernote.urls')),
     path('post/<int:pk>', PostDetailView.as_view(), name='post-detail'),
     path('add_post/', AddPostView.as_view(), name='add_post'),
@@ -15,5 +23,7 @@ urlpatterns = [
     path('category/<str:cats>/', CategoryView, name='category'),
     path('category-list/', CategoryListView, name='category-list'),
     path('like/<int:pk>', LikeView, name='like_post'),
-    path('post/<int:pk>/comment/', AddCommentView.as_view(), name='add_comment'),
+    path(
+        'post/<int:pk>/comment/', AddCommentView.as_view(), name='add_comment'
+        ),
 ]

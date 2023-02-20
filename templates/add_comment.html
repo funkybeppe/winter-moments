@@ -10,10 +10,16 @@
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="mb-3">
+                <input value='{{ user.username }}' name="name" type="hidden" class="form-control" id="id_name">
+            </div>
+            <div class="mb-3">
+                <label for="id_body" class="form-label">Content</label>
+                <textarea name="body" cols="40" rows="10" class="form-control" required id="id_body"></textarea>
+            </div>
             <button class="btn btn-dark">Comment <i class="fa-solid fa-paper-plane post-button"></i></button>
+        </form>
     </div>
-
     <br/>
 {% else %}  
 
