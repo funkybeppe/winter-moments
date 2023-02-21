@@ -1,9 +1,9 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 from django.urls import reverse
 from datetime import datetime, date
-from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 
 
@@ -51,6 +51,15 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
+
+
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        profile_user = Profile(user=instance)
+        profile_user.save()
+
+
+post_save.connect(create_profile, sender=User)
 
 
 class Comment(models.Model):

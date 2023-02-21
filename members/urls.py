@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import UserRegisterView, UserEditView, PasswordsChangeView, ProfilePageView, EditProfilePageView, CreateProfilePageView
 from . import views
 
