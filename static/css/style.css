@@ -83,3 +83,17 @@ footer {
     max-width: 400px;
 }
 
+.category-card:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+
+.nav-link:hover,
+.active {
+  text-decoration: underline;
+}
+
+.nav-link {
+    color: hsl(0, 0%, 100%) !important;
+  }

@@ -2,17 +2,36 @@
 {% block title %}Winter Moments | Categories{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-    <h1>Categories</h1>
-
+    <br/>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center" style="width: 100%;">
+                <h1 class="display-3">Categories</h1>
+            </div>
+        </div>
+    </div>
+    <br/>  
     {% for item in cat_menu_list %}
-
-        <h4><a class="dropdown-item category-dropdown" href="{% url 'category' item|slugify %}">{{ item }}</a></h4>
-                
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-12 mb-2 mx-auto text-center category-card" style="max-width: 18rem;">
+                <div class="card-body">
+                    <p class="h4 text-center card-text"><a class="dropdown-item category-dropdown" href="{% url 'category' item|slugify %}">{{ item }}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>        
     {% endfor %}
 
-<br/><br/>
-<a href="{% url 'home' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
-<br/><br/>
+    <br/><br/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center" style="width: 100%;">
+                <a href="{% url 'home' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
+            </div>
+        </div>
+    </div>
+    <br/>
 {% else %}
 
 You're not allowed here

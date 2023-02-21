@@ -3,17 +3,21 @@
 {% block content %}
 
 {% if category_posts %}
-
-<h1>{{ cats }}</h1>
-
-
+<br/>
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-12" style="width: 100%;"></div>
+            <h1 class="display-3">{{ cats }} Posts</h1>
+        </div>
+    </div>
+</div>
 {% for post in category_posts %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 mt-5" style="width: 100%;">
+        <div class="col-12 mt-3 mb-3" style="width: 100%;">
             <div class="row">
                 <div class="col-lg-12 col-xl-12">
-                    <div class="card mb-4 mx-auto mb-3" style="max-width: 50rem;">
+                    <div class="card mx-auto" style="max-width: 45rem;">
                         <div class="card-body">
                             <div class="image-container">
                                 <img class="card-img-top image-fluid" src="{{ post.featured_image.url }}" width="100%" height="auto">
@@ -28,9 +32,12 @@
                             </div>
                             <hr />
                             <p class="card-text text-muted h6">
-                                {{ post.created_on}} 
+                                {{ post.created_on}}
+                                &nbsp; 
                                 <i class="far fa-heart"></i>
                                 {{ post.likes.count }}
+                                <i class="far fa-comment-dots"></i>
+                                {{ post.comments.count }}
                             </p>
                         </div>
                     </div>
@@ -41,9 +48,23 @@
 </div>
 
 {% endfor %}
-
+{% else %}
+<br/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center" style="width: 100%;">
+            <h1 class="display-3">No posts yet in this category</h1>
+        </div>
+    </div>
+</div>
 {% endif %}
 <br/>
-<a href="{% url 'category-list' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
-<br/><br/><br/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 text-center" style="width: 100%;">
+            <a href="{% url 'category-list' %}" class="btn btn-dark"><i class="fa-solid fa-arrow-left back-arrow"></i> Back</a>
+        </div>
+    </div>
+</div>
+<br/><br/>
 {% endblock %}

@@ -63,12 +63,12 @@
                                       <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             {% if not post.comments.all %}
-                                            No Comments Yet.<br> 
+                                            <strong>No comments yet.</strong><br> 
                                             {% else %}
                                             <small><a href="{% url 'add_comment' post.pk %}">Add Comment</a></small>
                                             <br/><br/>
                                             {% for comment in post.comments.all %}
-                                            <small>{{ comment.name }}</small>
+                                            <small><strong>{{ comment.name }}</strong></small>
                                             <br/>
                                             <small>{{ comment.body }}</small>
                                             <br/>
@@ -85,7 +85,7 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <p>By: {{ post.author.username }} - {{ post.created_on }}</p>
+                            <p>{{ post.created_on }}</p>
                                 {% if user.is_authenticated %}
                                     {% if user.id == post.author.id %}
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
@@ -101,9 +101,6 @@
         </div>
     </div>
     <br/>
-
-    
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center" style="width: 100%;">
