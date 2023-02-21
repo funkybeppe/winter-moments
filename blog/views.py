@@ -3,12 +3,14 @@ from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import View, generic
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
     )
 
 
-class Home(ListView):
+class Home(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'home.html'
     ordering = ['-created_on']
