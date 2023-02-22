@@ -40,11 +40,11 @@ class Category(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    bio = models.TextField()
+    bio = models.TextField(blank=True, null=True)
     profile_picture = CloudinaryField('image', blank=True, null=True)
-    facebook_link = models.CharField(max_length=255, null=True)
-    instagram_link = models.CharField(max_length=255, null=True)
-    twitter_link = models.CharField(max_length=255, null=True)
+    facebook_link = models.CharField(max_length=255, blank=True, null=True)
+    instagram_link = models.CharField(max_length=255, blank=True, null=True)
+    twitter_link = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return str(self.user)

@@ -3,23 +3,29 @@
 {% load static %}
 {% block content %}
 
-<h2>Profile</h2>
-
-
-<div class="card mb-3 text-center" style="max-width: 45rem;">
+<br/>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-12 text-center" style="width: 100%;">
+          <h1 class="display-3">{{ profile_user }}'s Profile</h1>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="card mb-3 text-center mx-auto bg-dark text-white" style="max-width: 45rem;">
     <div class="row g-0">
       <div class="col-md-4 mt-2 mb-2">
         {% if profile_user.profile_picture %}
-        <img src="{{ profile_user.profile_picture.url }}" class="img-fluid rounded" alt="Profile Picture" style="max-height: 200px;">
+        <img src="{{ profile_user.profile_picture.url }}" class="img-fluid rounded-circle" alt="Profile Picture" style="max-height: 200px;">
         {% else %}
-        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676824906/8379828_p23kkn.png" class="img-fluid rounded-start" alt="Default Profile Picture" style="max-height: 200px;">
+        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1677074009/user_pfuue2.png" class="img-fluid rounded-circle" alt="Default Profile Picture" style="max-height: 200px;">
         {% endif %}
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ profile_user }}</h5>
-          <p class="card-text">{{ profile_user.user.first_name }} {{ profile_user.user.last_name }}</p>
+          <h4 class="card-title">{{ profile_user }}</h4>
           <br/>
+          <p class="card-text">{{ profile_user.user.first_name }} {{ profile_user.user.last_name }}</p>
           <p class="card-text">{{ profile_user.bio }}</small></p>
           <p class="card-text h5">
             {% if profile_user.facebook_link %}
@@ -27,15 +33,16 @@
             {% endif %}
 
             {% if profile_user.instagram_link %}
-            <a href="{{ profile_user.instagram_url }}"><i class="fab fa-instagram"></i></a>
+            <a href="{{ profile_user.instagram_link }}"><i class="fab fa-instagram"></i></a>
             {% endif %}
 
             {% if profile_user.twitter_link %}
-            <a href="{{ profile_user.twitter_url }}"><i class="fab fa-twitter"></i></a>
+            <a href="{{ profile_user.twitter_link }}"><i class="fab fa-twitter"></i></a>
             {% endif %}
           </p>
         </div>
       </div>
     </div>
   </div>
+<br/>
 {% endblock %}
