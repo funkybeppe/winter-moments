@@ -97,3 +97,11 @@ footer {
 .nav-link {
     color: hsl(0, 0%, 100%) !important;
   }
+
+#id_password {
+    display: none;
+}
+
+.helptext {
+    display: none;
+}

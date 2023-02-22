@@ -2,17 +2,25 @@
 {% block title %}Winter Moments | Settings{% endblock %}
 {% block content %}
 
-
-<h1>Settings</h1>
-
 <br/><br/>
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
+<div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
+    <div class="card-body">
+        <h1 class="card-title">Settings</h1>
         <br/>
-        <button class="btn btn-dark">Update Settings <i class="fa-solid fa-gear update-icon"></i></button>
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.as_p }}
+                </div>
+                <div class="mb-3">
+                    <a href="../password/"><em>Change Password</em></a>
+                </div>
+                <br/>
+                <button class="btn btn-light text-dark">Update Settings <i class="fa-solid fa-gear"></i></button>
+            </form>
+        </div>
+    </div>
 </div>
-<br/>
-
+<br/><br/>
 {% endblock %}

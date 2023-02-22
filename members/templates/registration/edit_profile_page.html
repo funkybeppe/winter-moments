@@ -15,29 +15,7 @@
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="id_bio" class="form-label">Bio</label>
-                        <textarea name="bio" cols="40" rows="10" class="form-control" id="id_bio"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="id_profile_picture">Current Image:</label>
-                        <a href="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676471792/tii9zpjasfbox2lykb8k.jpg">&nbsp; tii9zpjasfbox2lykb8k</a>&nbsp;
-                        <input type="checkbox" name="profile_picture-clear" class="form-check-input" id="profile_picture-clear_id">
-                        <label for="profile_picture-clear_id" class="form-check-label">Clear</label><br/>
-                        <br/>
-                        <p>Change To:<input type="file" name="profile_picture" id="id_profile_picture" class="form-control"></p>
-                    </div>
-                    <br/>
-                    <div class="mb-3">
-                        <label for="id_facebook_link">Facebook link</label>
-                        <input type="text" name="facebook_link" value="https://www.facebook.com/luca.barbero.79" class="form-control" maxlength="255" id="id_facebook_link">
-                    </div>
-                    <div class="mb-3">
-                        <label for="id_instagram_link">Instagram link:</label>
-                        <input type="text" name="instagram_link" value="https://www.instagram.com/barbe_is_in_the_air/" class="form-control" maxlength="255" id="id_instagram_link">
-                    </div>
-                    <div class="mb-3">
-                        <label for="id_twitter_link">Twitter link:</label>
-                        <input type="text" name="twitter_link" value="https://twitter.com/LucaBarbero96" class="form-control" maxlength="255" id="id_twitter_link">
+                        {{ form.as_p }}
                     </div>
                     <br/>
                     <button class="btn btn-light text-dark">Update Profile <i class="fa-solid fa-paper-plane"></i></button>
