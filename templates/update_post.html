@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Update Post{% endblock %}
 {% block content %}
-
+<br/><br/>
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
-        <h1>Update Post</h1>
-
-        <div class="form-group">
-            <form method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-dark">Update <i class="fa-solid fa-pen-to-square update-icon"></i></button>
-        </div> 
+        <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
+            <div class="card-body">
+                <h1 class="card-title">Edit Post</h1>
+                <br/>
+                <div class="form-group">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.as_p }}
+                        </div>
+                        <br/>
+                        <button class="btn btn-light text-dark">Update <i class="fa-solid fa-pen-to-square"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br/><br/>
     {% else %}
 
         You are not allowed here!
