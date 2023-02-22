@@ -5,20 +5,24 @@
 
 
 {% if user.is_authenticated %}
-    <h1>Add Comment</h1>
-
-    <div class="form-group">
-        <form method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
-                <input value='{{ user.username }}' name="name" type="hidden" class="form-control" id="id_name">
+    <br/><br/>
+    <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
+        <div class="card-body">
+            <h1 class="card-title">Add Comment</h1>
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input value='{{ user.username }}' name="name" type="hidden" class="form-control" id="id_name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_body" class="form-label">Content</label>
+                        <textarea name="body" cols="40" rows="10" class="form-control" required id="id_body"></textarea>
+                    </div>
+                    <button class="btn btn-light text-dark">Comment <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="id_body" class="form-label">Content</label>
-                <textarea name="body" cols="40" rows="10" class="form-control" required id="id_body"></textarea>
-            </div>
-            <button class="btn btn-dark">Comment <i class="fa-solid fa-paper-plane post-button"></i></button>
-        </form>
+        </div>
     </div>
     <br/>
 {% else %}  
