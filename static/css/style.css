@@ -105,3 +105,7 @@ footer {
 .helptext {
     display: none;
 }
+
+.max-w-600 {
+    max-width: 600px;
+}
