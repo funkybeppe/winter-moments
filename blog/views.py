@@ -22,7 +22,7 @@ class Home(LoginRequiredMixin, ListView):
         return context
 
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
     template_name = 'post_details.html'
 
@@ -37,13 +37,13 @@ class PostDetailView(DetailView):
         return context
 
 
-class AddPostView(CreateView):
+class AddPostView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'add_post.html'
 
 
-class AddCommentView(CreateView):
+class AddCommentView(LoginRequiredMixin, CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'add_comment.html'
@@ -56,25 +56,25 @@ class AddCommentView(CreateView):
         return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
 
 
-class AddCategoryView(CreateView):
+class AddCategoryView(LoginRequiredMixin, CreateView):
     model = Category
     template_name = 'add_category.html'
     fields = '__all__'
 
 
-class UpdatePostView(UpdateView):
+class UpdatePostView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = 'update_post.html'
     form_class = EditForm
 
 
-class DeletePostView(DeleteView):
+class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
 
-def CategoryListView(request):
+def CategoryListView(LoginRequiredMixin, request):
     cat_menu_list = Category.objects.all()
     return render(
         request, 'category_list.html', {'cat_menu_list': cat_menu_list})

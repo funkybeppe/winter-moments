@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic import DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
@@ -8,7 +9,7 @@ from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePag
 from blog.models import Profile
 
 
-class PasswordsChangeView(PasswordChangeView):
+class PasswordsChangeView(LoginRequiredMixin, PasswordChangeView):
     form_class = PasswordChangingForm
     template_name = 'registration/change-password.html'
     success_url = reverse_lazy('password_success')
@@ -24,7 +25,7 @@ class UserRegisterView(generic.CreateView):
     success_url = reverse_lazy('login')
 
 
-class UserEditView(generic.UpdateView):
+class UserEditView(LoginRequiredMixin, generic.UpdateView):
     form_class = EditProfileForm
     template_name = 'registration/edit_profile.html'
     success_url = reverse_lazy('home')
@@ -33,7 +34,7 @@ class UserEditView(generic.UpdateView):
         return self.request.user
 
 
-class ProfilePageView(DetailView):
+class ProfilePageView(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'registration/user_profile.html'
 
@@ -45,7 +46,7 @@ class ProfilePageView(DetailView):
         return context
 
 
-class EditProfilePageView(generic.UpdateView):
+class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
     model = Profile
     form_class = ProfilePageForm
     template_name = 'registration/edit_profile_page.html'
@@ -60,3 +61,15 @@ class CreateProfilePageView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+def error_404(request, exception):
+    return render(request, '404.html')
+
+
+def error_500(request, exception):
+    return render(request, '500.html')
+
+
+def error_403(request, exception):
+    return render(request, '403.html')
