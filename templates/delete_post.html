@@ -4,18 +4,32 @@
 
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
-
-        <h1>Delete Post</h1>
-        <br/><br/>
-        <h3>Delete: {{ post.title }}</h3>
-
         <br/>
-        <div class="form-group">
-            <form method="POST">
-                {% csrf_token %}
-                <strong>Are you sure you want to delete this post?</strong><br/><br/>
-                <button class="btn btn-danger">Delete <i class="fa-solid fa-trash-can delete-icon"></i></button>
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center" style="width: 100%;">
+                <h1 class="display-3">Delete Post</h1>
+            </div>
         </div>
+        </div>
+        <br/>
+        <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
+            <div class="card-body">
+                <h1 class="card-title">Delete: {{ post.title }}</h1>
+                <br/>
+                <div class="form-group">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <p class="h4"><strong>Are you sure you want to delete this post?</strong></p>
+                        </div>
+                        <br/>
+                        <button class="btn btn-danger">Delete <i class="fa-solid fa-trash-can delete-icon"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     {% else %}
 
     You're not allowed here!
