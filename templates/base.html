@@ -77,12 +77,13 @@
                 <li><a class="dropdown-item" href="{% url 'profile_page' user.profile.id %}">My Profile <i class="fa-solid fa-user profile-icon"></i></a></li>
                 <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile <i class="fa-solid fa-user-pen profile-icon"></i></a></li>
                 {% endif %}
+
                 {% if user.is_staff %}
                 <li><a class="dropdown-item" href="{% url 'add_category' %}">Add Category <i class="fa-solid fa-list-ul plus-icon"></i></a></li>
                 <li><a class="dropdown-item" href="../admin/">Admin <i class="fa-solid fa-lock plus-icon"></i></a></li>
                 {% endif %}
+                
                 <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Settings <i class="fa-solid fa-gears profile-icon"></i></a></li>
-
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout <i class="fa-solid fa-arrow-right-from-bracket logout-icon"></i></a></li>
               </ul>
@@ -112,10 +113,10 @@
     <div class="container">
       <p class="m-0 text-center text-white">
         Follow Us:
-        <i class="fab fa-facebook-f ms-3"></i>
-        <i class="fab fa-twitter ms-3"></i>
-        <i class="fab fa-instagram ms-3"></i>
-        <i class="fab fa-youtube ms-3"></i>
+        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f ms-3"></i></a>
+        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter ms-3"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram ms-3"></i></a>
+        <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube ms-3"></i></a>
       </p>
       <p class="m-0 text-center text-white copyright-p">
         Created by Luca Barbero © 2023

@@ -74,7 +74,7 @@ class DeletePostView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('home')
 
 
-def CategoryListView(LoginRequiredMixin, request):
+def CategoryListView(request):
     cat_menu_list = Category.objects.all()
     return render(
         request, 'category_list.html', {'cat_menu_list': cat_menu_list})
