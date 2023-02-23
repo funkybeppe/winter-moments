@@ -18,14 +18,14 @@
 </head>
 
 <body class="d-flex flex-column main-bg bg-dark">
+
+{% if user.is_authenticated %}
   <nav class="navbar navbar-expand-lg sticky-top bg-dark navbar-dark" data-bs-theme="dark">
 
     <div class="container-fluid">
-      {% if user.is_authenticated %}
       <a class="navbar-brand" href="{% url 'home' %}">
         <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676374654/logo-no-background_qj7m4q.png" alt="Logo" width="80" height="50" class="d-inline-block align-text-top">
       </a>
-      {% endif %}
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,26 +87,20 @@
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout <i class="fa-solid fa-arrow-right-from-bracket logout-icon"></i></a></li>
               </ul>
             </li>
-
-          {% else %}
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">Register <i class="fa-solid fa-pen register-icon"></i></a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Login <i class="fa-solid fa-right-to-bracket login-icon"></i></a>
-            </li>
-
           {% endif %}
-
-          </ul>
-
+        </ul>
       </div>
-
     </div>
-
   </nav>
+{% else %}
+  <nav class="navbar sticky-top bg-dark navbar-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676374654/logo-no-background_qj7m4q.png" alt="Logo" width="80" height="50" class="d-inline-block align-text-top">
+      </a>
+    </div>
+  </nav>
+{% endif %}
   <div class="container flex-shrink-0">
     {% block content %}
 
