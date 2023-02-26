@@ -1,12 +1,29 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, FormView
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm, AuthenticationForm
+from django.contrib.auth.views import PasswordChangeView, LoginView
 from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePageForm
 from blog.models import Profile
+
+
+class LoginView(FormView):
+    template_name = 'registration/login.html'
+    form_class = AuthenticationForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_messages(self.request, messages.SUCCESS, "Login successfully")
+        return response
+
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        messages.add_message(self.request, messages.ERROR, "Username or Password invalid. Please try again.")
+        return response
 
 
 class PasswordsChangeView(LoginRequiredMixin, PasswordChangeView):
@@ -24,6 +41,16 @@ class UserRegisterView(generic.CreateView):
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('login')
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(self.request, messages.SUCCESS, "User created successfully")
+        return response
+
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        messages.add_message(self.request, messages.ERROR, "Username or Password invalid. Please try again.")
+        return response
+
 
 class UserEditView(LoginRequiredMixin, generic.UpdateView):
     form_class = EditProfileForm
@@ -32,6 +59,11 @@ class UserEditView(LoginRequiredMixin, generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(self.request, messages.SUCCESS, "Settings updated successfully")
+        return response
 
 
 class ProfilePageView(LoginRequiredMixin, DetailView):
@@ -51,6 +83,11 @@ class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
     form_class = ProfilePageForm
     template_name = 'registration/edit_profile_page.html'
     success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(self.request, messages.SUCCESS, "Profile details updated successfully")
+        return response
 
 
 class CreateProfilePageView(CreateView):

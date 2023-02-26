@@ -17,16 +17,22 @@
         <div class="col-12 mt-3 mb-2" style="width: 100%;">
             <div class="row">
                 <div class="col-lg-12 col-xl-12">
-                    <div class="card mx-auto" style="max-width: 45rem;">
+                    <div class="card shadow mx-auto" style="max-width: 40rem; max-height: 40rem">
                         <div class="card-body">
+                            {% if post.featured_image %}
                             <div class="image-container">
-                                <img class="card-img-top image-fluid" src="{{ post.featured_image.url }}" width="100%" height="auto">
+                                <img class="card-img-top rounded image-fluid" src="{{ post.featured_image.url }}" style="max-height: 20rem;">
                                 <div class="author">
-                                    <h6><a href="{% url 'profile_page' post.author.profile.id %}">{{ post.author.username }}</a></h6>
+                                    <p class="fs-5 fw-light"><a href="{% url 'profile_page' post.author.profile.id %}">{{ post.author.username }}</a></p>
                                 </div>
                             </div>
+                            {% else %}
+                            <div class="author">
+                                <p class="fs-5 fw-light"><a href="{% url 'profile_page' post.author.profile.id %}">{{ post.author.username }}</a></p>
+                            </div>
+                            {% endif %}
                             <div>
-                                <h3 class="card-title">{{ post.title }}</h2>
+                                <h3 class="card-title fw-light">{{ post.title }}</h2>
                                 <p class="card-text category">{{ post.category }}</p>
                                 <a href="{% url 'post-detail' post.pk  %}" class="btn btn-dark btn-sm post-link">View Post</a>
                             </div>

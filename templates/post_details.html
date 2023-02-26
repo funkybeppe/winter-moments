@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+<br/>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3" style="width: 100%;">
@@ -20,7 +21,7 @@
                                 </div>
                                 <div class="col-10 bg-transparent">
                                     <div class="card-body">
-                                        <h4 class="card-text d-inline">
+                                        <h3 class="card-text d-inline fs-3 fw-light">
                                            <a href="{% url 'profile_page' post.author.profile.id %}">{{ post.author.username }}</a> 
                                         </h4>
                                     </div>
@@ -28,9 +29,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h4 class="card-body bg-light">{{ post.title }}</h4>
-                            <img class="card-image-top image-fluid rounded col-lg-12 col-xl-12" src="{{ post.featured_image.url }}" width="100%" height="auto">
-                            <p class="card-text">{{ post.body | safe }}</p>
+                            <h3 class="card-body bg-light fw-light text-center fs-4">{{ post.title }}</h4>
+                            <img class="card-image-top image-fluid rounded col-lg-12 col-xl-12" src="{{ post.featured_image.url }}" width="100%" style = "max-height: 30rem ;">
+                            {% if post.featured_image %}
+                            <br/>
+                            <br/>
+                            {% endif %}
+                            <p class="card-text text-center fs-5 fw-light">{{ post.body | safe }}</p>
                                 {% if user.is_authenticated %}
                                     <form class="d-inline" action="{% url 'like_post' post.pk %}" method="POST">
                                     
@@ -42,9 +47,6 @@
                                         <button type="submit" name="post_id" value="{{post.id}}" class="btn-like"><i class="far fa-heart"></i></button>
                                         {% endif %}
                                     </form>
-                                {% else %}
-                                    <small><strong><a href="{% url 'login' %}">Login</a></strong> to like</small>
-                                    <span class="text-secondary"><i class="far fa-heart"></i></span>
                                         
                                 {% endif %}
                                     <span class="text-secondary">{{ post.likes.count }}</span>

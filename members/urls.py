@@ -1,9 +1,10 @@
 from django.urls import path, include
-from .views import UserRegisterView, UserEditView, PasswordsChangeView, ProfilePageView, EditProfilePageView, CreateProfilePageView
+from .views import UserRegisterView, UserEditView, PasswordsChangeView, ProfilePageView, EditProfilePageView, CreateProfilePageView, LoginView
 from . import views
 
 urlpatterns = [
     path('register/', UserRegisterView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
     path('edit_profile/', UserEditView.as_view(), name='edit_profile'),
     path('password/', PasswordsChangeView.as_view()),
     path('password_success', views.password_success, name='password_success'),

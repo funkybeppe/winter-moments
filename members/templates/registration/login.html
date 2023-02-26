@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Login{% endblock %}
 {% block content %}
+{% load static %}
 
 <br/><br/>
 <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
@@ -10,6 +11,12 @@
         <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
+                {% if form.errors %}
+                    <div class="alert alert-danger alert-dismissible fade show" id="msg" role="alert" style="max-width: 28rem;">
+                        Username or Password not correct. Please try again
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
                 <div class="mb-3">
                     <label for="InputUsername" class="form-label">Username</label>
                     <input type="text" autocomplete name="username" class="form-control" id="InputUsername">
@@ -21,9 +28,11 @@
                     <div class="form-text text-white">Not a User? &nbsp;<small><em><a href="{% url 'register' %}">Register</a></em></small></div>
                 </div>
                 <br/>
-                <button class="btn btn-light text-dark">Login <i class="fa-solid fa-right-to-bracket"></i></button>
+                <button class="btn btn-light text-dark" id="liveToastBtn">Login <i class="fa-solid fa-right-to-bracket"></i></button>
             </form>
         </div>   
     </div>
 </div>
+
+
 {% endblock %}

@@ -3,6 +3,7 @@ from .models import Post, Category, Comment
 from .forms import PostForm, EditForm, CommentForm
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View, generic
 from django.views.generic import (
@@ -42,6 +43,11 @@ class AddPostView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     template_name = 'add_post.html'
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(self.request, messages.SUCCESS, "Post created successfully")
+        return response
+
 
 class AddCommentView(LoginRequiredMixin, CreateView):
     model = Comment
@@ -50,6 +56,7 @@ class AddCommentView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
+        messages.add_message(self.request, messages.SUCCESS, "Comment added successfully")
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -67,6 +74,11 @@ class UpdatePostView(LoginRequiredMixin, UpdateView):
     template_name = 'update_post.html'
     form_class = EditForm
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(self.request, messages.SUCCESS, "Post updated successfully")
+        return response
+
 
 class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
@@ -81,12 +93,15 @@ def CategoryListView(request):
 
 
 def CategoryView(request, cats):
+    ordering = ['-created_on']
     category_posts = Post.objects.filter(
         category=cats.replace('-', ' '))
     return render(
         request, 'categories.html', {
             'cats': cats.title().replace('-', ' '),
-            'category_posts': category_posts})
+            'category_posts': category_posts
+            }
+        )
 
 
 def LikeView(request, pk):
