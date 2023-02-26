@@ -105,17 +105,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'wintermoments.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# if environ.get("DEV_ENVIRONMENT_DATABASE"):
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
-
 DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 # Password validation
@@ -164,7 +153,6 @@ STATICFILES_STORAGE = (
     'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/ckeditor.js"
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
