@@ -5,8 +5,8 @@
     <br/>  
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 text-center" style="width: 100%;">
-                <h1 class="display-3">Categories</h1>
+            <div class="col-12 text-center">
+                <h1 class="card display-5 mx-auto bg-dark text-white" style="max-width: 16rem">Categories</h1>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
     {% for item in cat_menu_list %}
     <div class="container-fluid">
         <div class="row">
-            <div class="card col-12 mb-2 mx-auto text-center category-card" style="max-width: 18rem;">
+            <div class="card col-12 mb-2 mx-auto text-center category-card" style="max-width: 16rem;">
                 <div class="card-body">
                     <p class="h4 text-center card-text"><a class="dropdown-item category-dropdown" href="{% url 'category' item|slugify %}">{{ item }}</a></p>
                 </div>
