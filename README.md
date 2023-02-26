@@ -69,6 +69,7 @@ The website uses Bootstrap dark theme for Navigation, Footer and forms.
 Post cards are in a white shade and text in dark, "View Post" buttons in dark theme color to provide contrast.
 Edit button is provided with a grey color from Bootstrap, Delete button with a red color to stand out.
 
+<img width="934" alt="Screenshot 2023-02-26 at 15 00 19" src="https://user-images.githubusercontent.com/105980082/221435116-4069fa00-c11c-417d-bfba-1b726bdb8f24.png">
 
 ## Typography
 
@@ -97,6 +98,9 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 ## Features
 
 1. Landing Page
+
+<img width="87" alt="Screenshot 2023-02-26 at 15 02 51" src="https://user-images.githubusercontent.com/105980082/221435031-649932e0-b9da-4c38-a0ed-ec55a44404d9.png">
+
 <img width="1512" alt="Screenshot 2023-02-26 at 14 59 28" src="https://user-images.githubusercontent.com/105980082/221428380-ad6b99ab-e30a-4a39-aa29-0c0a8691d815.png">
 
 <img width="960" alt="Screenshot 2023-02-26 at 15 02 03" src="https://user-images.githubusercontent.com/105980082/221428414-18f728bd-d6b3-49ab-90cc-45fa5a814522.png">
