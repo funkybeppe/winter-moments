@@ -5,7 +5,7 @@
 
 This is the 4th portfolio project developed as part of the Code Institute Diploma in Full Stack Development. It was created to demonstrate skills acquired using Django to design and develop websites that offer full CRUD (create, read, update and delete) functionality.
 
-## Winter Moments
+# Winter Moments
 
 Winter Moments is a picture blog where winter sports enthusiasts can share their experiences with other users upon registration.
 
@@ -107,11 +107,21 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 
 2. Navigation
 
+* The main navigation bar was designed from the outset to be kept clean and simple. The purpose of this design is to highlight the main functionality of the site (viewing and submitting requests). While links to the site's main functionality are always visible when authenticated, other links were moved to a bootstrap dropdown. The username dropdown function is to contain links to the profile, edit profile page, settings and logout links but it also informs the authenticated user which account they are currently logged in with.
+
+* Authenticated users will be shown their current username in a dropdown at the middle/left of the navigation bar 
+
+* The navigation bar is responsive and will collapse to a 'hamburger' style menu when viewed on devices with smaller viewports. The drop down will be hidden and the links to other features displayed in a list to prevent the nesting of dropdowns.
+
 ![Screenshot 2023-02-26 at 15 04 17](https://user-images.githubusercontent.com/105980082/221428484-9c8ba68a-9a1f-4357-bde3-b156e1e770fc.png)
+
+* Unauthenticated users are shown the logo which redirects to landing page
 
 ![Screenshot 2023-02-26 at 15 04 27](https://user-images.githubusercontent.com/105980082/221428492-31d250a0-a964-4252-841a-8300c9aaed2a.png)
 
 <img width="425" alt="Screenshot 2023-02-26 at 15 07 47" src="https://user-images.githubusercontent.com/105980082/221429062-647d50b6-133a-432a-9e51-7feca0f450be.png">
+
+* Navigation on smaller viewports
 
 ![Screenshot 2023-02-26 at 15 10 09](https://user-images.githubusercontent.com/105980082/221429080-62ac45dd-32dc-4b59-8392-4e54b2aa1b2e.png)
 
@@ -119,13 +129,21 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 
 3. Register and Login
 
+* The django-auth module was used to authenticate users, create new users and change their details such as passwords.
+
 <img width="710" alt="Screenshot 2023-02-26 at 15 03 06" src="https://user-images.githubusercontent.com/105980082/221428572-4c83926c-00b4-48de-af27-b4ae6dad22a9.png">
 
 ![Screenshot 2023-02-26 at 15 03 37](https://user-images.githubusercontent.com/105980082/221428586-c21034b9-bec8-451d-b9b5-a26c74c0df3d.png)
 
-* Forms error 
 
 4. Home Page
+
+* Posts
+  * Bootstrap cards were used to contain the posts. Posts can be viewed by clicking on the "view post" button within the card.
+  * Post's author profile page can be viewed by clicking the author's name just under the picture.
+  * The creation date is shown in the bottom left of the post.
+  * The number of likes and comments is shown just next to the creation date.
+  * Posts can be with an image or without.
 
 * Post with image
 
@@ -136,31 +154,38 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 ![Screenshot 2023-02-26 at 15 10 39](https://user-images.githubusercontent.com/105980082/221429217-6515ab6e-5b98-4943-8a48-31f72687da4a.png)
 
 * New Post
-
-<img width="705" alt="Screenshot 2023-02-26 at 15 05 14" src="https://user-images.githubusercontent.com/105980082/221429668-c2f7b7c5-4ffe-4aa6-9703-846287d52566.png">
+ * The new post link redirects to the "Add Post" form allowing users to create a new blog post
+ 
+ <img width="705" alt="Screenshot 2023-02-26 at 15 05 14" src="https://user-images.githubusercontent.com/105980082/221429668-c2f7b7c5-4ffe-4aa6-9703-846287d52566.png">
 
 * Categories
 
-* Navigation dropdown menu
+* Posts are stored in selected categories, only the Admin or Staff member can add a category.
+* Users can decide to see only posts of a certain category
+* If there aren't any posts under the selected category a message is displayed on the screen.
 
-<img width="425" alt="Screenshot 2023-02-26 at 15 07 47" src="https://user-images.githubusercontent.com/105980082/221429735-75af00a3-cdbf-4e91-a1dd-8af8077b87e6.png">
+ * Navigation dropdown menu
 
-* Posts under the selected category are listed 
+ <img width="425" alt="Screenshot 2023-02-26 at 15 07 47" src="https://user-images.githubusercontent.com/105980082/221429735-75af00a3-cdbf-4e91-a1dd-8af8077b87e6.png">
 
-<img width="752" alt="Screenshot 2023-02-26 at 15 08 10" src="https://user-images.githubusercontent.com/105980082/221429743-cfa7674a-f3e2-425b-96e8-ed4077b70143.png">
+ * Posts under the selected category are listed 
 
-* Category list
+ <img width="752" alt="Screenshot 2023-02-26 at 15 08 10" src="https://user-images.githubusercontent.com/105980082/221429743-cfa7674a-f3e2-425b-96e8-ed4077b70143.png">
 
-<img width="519" alt="Screenshot 2023-02-26 at 15 07 36" src="https://user-images.githubusercontent.com/105980082/221429749-ffac4a67-979b-4fb2-8f84-5917c0cbbf8c.png">
+ * Category list
 
-* If a category hasn't got any posts
+ <img width="519" alt="Screenshot 2023-02-26 at 15 07 36" src="https://user-images.githubusercontent.com/105980082/221429749-ffac4a67-979b-4fb2-8f84-5917c0cbbf8c.png">
 
-<img width="957" alt="Screenshot 2023-02-26 at 15 08 31" src="https://user-images.githubusercontent.com/105980082/221429762-560006d5-f4a9-429b-8340-50d383e0dc13.png">
+ * If a category hasn't got any posts
 
+ <img width="957" alt="Screenshot 2023-02-26 at 15 08 31" src="https://user-images.githubusercontent.com/105980082/221429762-560006d5-f4a9-429b-8340-50d383e0dc13.png">
 
 
 
 5. Post View
+
+* Upon clicking on the "View Post" button in the home page, the user will be redirected to the actual post page.
+* The View Post page shows the Username and Profile picture on the top of the card, the post picture, post description, likes and comments, date of creation. 
 
 * Post with image
 
@@ -172,15 +197,21 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 
 
 * Username and Profile Picture
+ * Users can click on the author's name to view their profile page.
 
 ![Screenshot 2023-02-26 at 15 12 08](https://user-images.githubusercontent.com/105980082/221429330-09cef8e6-c21e-475d-b15a-d27e35048f28.png)
 
 * Likes and Comments
+ * Users can leave likes by clicking on the heart icon, the icon will change color to red if liked.
 
 ![Screenshot 2023-02-26 at 15 11 51](https://user-images.githubusercontent.com/105980082/221429355-29fcfc56-c39e-4e91-b8cc-6945954a3e9c.png)
 
 
 * Comments
+
+ * Users can leave comments under the post by clicking the "Add Comment" link, redirecting to the Add Comment page.
+ * Comments are displayed in this way:
+   * The commenter's username, the actual comment, comment date.
 
 ![Screenshot 2023-02-26 at 15 09 44](https://user-images.githubusercontent.com/105980082/221428777-7f5d6747-8e10-4866-a45d-bb85b5412c65.png)
 
@@ -189,6 +220,7 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 ![Screenshot 2023-02-26 at 15 09 54](https://user-images.githubusercontent.com/105980082/221429371-7608d712-8015-40d8-8ee7-85a51245b864.png)
 
 * Delete and Edit Post
+ * Users can Edit and Delete their posts only, Edit and Delete buttons are provided below the post.
 
 ![Screenshot 2023-02-26 at 18 30 17](https://user-images.githubusercontent.com/105980082/221429495-88a7d8a2-74e1-4c69-a909-cf8a36925c63.png)
 
@@ -208,6 +240,7 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 6. Account Management
 
 * User
+ * Users can update their profile page and their account settings.
 
 <img width="554" alt="Screenshot 2023-02-26 at 15 15 03" src="https://user-images.githubusercontent.com/105980082/221428836-392a3036-837f-4778-a675-d820e09af660.png">
 
@@ -218,6 +251,7 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 <img width="705" alt="Screenshot 2023-02-26 at 15 07 16" src="https://user-images.githubusercontent.com/105980082/221428950-876da880-9ab3-4695-aa44-d6c410bd9a65.png">
 
 * Admin
+ * Users with Admin position are able to access Django admin panel from the dropdown menu
 
 <img width="547" alt="Screenshot 2023-02-26 at 15 05 42" src="https://user-images.githubusercontent.com/105980082/221428875-e77035e6-9bad-44d2-9525-a3ec62b90d0b.png">
 
@@ -226,10 +260,15 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 
 
 7. Footer
+* Footer includes link to social networks and the website author name.
 
 <img width="1107" alt="Screenshot 2023-02-26 at 15 02 33" src="https://user-images.githubusercontent.com/105980082/221428503-56fb3a51-e6c3-42a5-ac5f-6fc0052cedf4.png">
 
 8. Profile Page
+* Every user has their personal profile page:
+  * Profile page contains profile picture, Username, First and Last Name, Bio and Social Links
+  * Profile is editable
+  * Profile can be without picture, however a default picture will be selected if users does not provide one.
 
 * With Profile Picture
 
@@ -238,8 +277,6 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 * Without Profile Picture
 
 ![Screenshot 2023-02-26 at 15 12 21](https://user-images.githubusercontent.com/105980082/221429631-a3b074c0-82d1-48de-8e19-f95c56f18d23.png)
-
-
 
 
 ## Features Not Implemented
@@ -314,7 +351,33 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 
 ## Testing
 
+### Manual Tests
 
+Manual testing occurred regularly throughout local development, making use of statements that would print information to the console and use of the Django debug pages.
+
+#### Tests Cases
+
+
+### Code Validation
+
+#### HTML
+
+The W3C Markup Validator and W3C CSS Validator Services were used to validate the project's HTML and CSS files to ensure there were no syntax errors or warnings.
+
+
+#### CSS
+
+No validation errors reported.
+
+
+#### Python
+
+No validation error reported when using the [PEP8 Online Check Tool](http://ww12.pep8online.com/).
+
+
+#### JavaScript
+
+No validation errors reported testing with [JSHint](https://jshint.com/).
 
 ## Bugs
 ### Fixed Bugs
@@ -323,6 +386,19 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 ### Remaining Bugs
 
   No known errors remaining.
+
+#### Accessibility
+
+* Best Practices score lower due to image resize to fit logo, performances are not alterated.
+
+![Screenshot 2023-02-26 at 20 12 36](https://user-images.githubusercontent.com/105980082/221434664-49cac971-fb60-49b1-a577-8e82033a033b.png)
+
+### Devices user for manual testing
+
+* Site was tested using the following desktop and mobile browsers:
+   * Chrome, Firefox, Safari
+   * Iphone 14 Pro Max
+   * iPad 6th Gen
 
 
 ## Deployment
