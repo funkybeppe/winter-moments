@@ -94,6 +94,10 @@ The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 
 ## Database Schema
 
+4 custom models were created based on the initial database schema design as below. The Post model was created first, then the Profile model after and then extended for the Comment model.
+
+<img width="775" alt="Screenshot 2023-02-27 at 17 59 58" src="https://user-images.githubusercontent.com/105980082/221646104-60950acd-5499-4d00-ad06-be59fcc4c32f.png">
+
 
 ## Features
 
