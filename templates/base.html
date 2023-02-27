@@ -1,3 +1,7 @@
+<!-- 
+  base template
+  used on all pages to load the navigation and footer, and handle messaging using django messages with bootstrap classes
+-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,6 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Winter Moments is a blog for winter sports enthusiasts">
+  <!-- page title block used by other pages to set the title element -->
   <title>
     {% block title %}
     Winter Blog
@@ -14,23 +19,28 @@
   </title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png">
-  <link rel="manifest" href="{% static 'js/site.webmanifest">
+  <!-- favicon -->
   <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
   <link rel="preload" href="{% static 'css/style.css' %}" as="style">
+  <!-- load bootstrap css and js min files from the cdn -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
   </script>
+  <!-- Fontawesome kit -->
   <script src="https://kit.fontawesome.com/ca4c815917.js" crossorigin="anonymous"></script>
   <script src="{% static 'js/script.js' %}"></script>
+  <!-- load my style sheet from static -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body class="d-flex flex-column main-bg bg-dark">
 
 {% if user.is_authenticated %}
+<!-- 
+  elements within this statement will be displayed only if the user is authenticated 
+  otherwise they will see links to the home page, and to register/signup
+-->
+<!-- Navigation Element -->
   <nav class="navbar navbar-expand-lg sticky-top bg-dark navbar-dark" data-bs-theme="dark">
 
     <div class="container-fluid">
@@ -47,6 +57,7 @@
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {% if user.is_authenticated %}
+          <!-- Dropdown menu for categories -->
             {% if cat_menu %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,12 +94,12 @@
                 {{ user.username }}
               </a>
               <ul class="dropdown-menu">
-
+              <!-- Dropdown menu will show when user is autheticated -->
                 {% if user.profile.id %}
                 <li><a class="dropdown-item" href="{% url 'profile_page' user.profile.id %}">My Profile <i class="fa-solid fa-user profile-icon"></i></a></li>
                 <li><a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile <i class="fa-solid fa-user-pen profile-icon"></i></a></li>
                 {% endif %}
-
+              <!-- the navigation items will show if user is Admin or Staff -->
                 {% if user.is_staff %}
                 <li><a class="dropdown-item" href="{% url 'add_category' %}">Add Category <i class="fa-solid fa-list-ul plus-icon"></i></a></li>
                 <li><a class="dropdown-item" href="../admin/">Admin <i class="fa-solid fa-lock plus-icon"></i></a></li>
@@ -105,6 +116,7 @@
     </div>
   </nav>
 {% else %}
+<!-- if user is not authenticated, logo will redirect to index page instead home page -->
   <nav class="navbar sticky-top bg-dark navbar-dark" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'index' %}">
@@ -112,13 +124,17 @@
       </a>
     </div>
   </nav>
+<!-- Navigation End -->
 {% endif %}
   <div class="container flex-shrink-0">
+<!-- Messages using django messages -->
 {% if messages %}
+<!-- if there are any message held in the requests session they will be displayed as stacked elements -->
 <div class="container">
     <div class="row">
         <div class="col-12 mt-3 mx-auto text-center" style="max-width: 30rem;">
             {% for message in messages %}
+            <!-- for each message, use message tags to set 'role' and 'aria-live' attributes -->
             <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
                 {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -137,6 +153,7 @@
   <footer class="footer py-3 mt-auto bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">
+        <!-- links to social networks -->
         Follow Us:
         <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f ms-3"></i></a>
         <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter ms-3"></i></a>
@@ -148,6 +165,8 @@
       </p>
     </div>
   </footer>
+  <!-- Footer End -->
+
 
 </body>
 
