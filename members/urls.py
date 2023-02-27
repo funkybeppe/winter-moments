@@ -1,6 +1,16 @@
+"""URLs for registration and profile editing"""
+
 from django.urls import path, include
-from .views import UserRegisterView, UserEditView, PasswordsChangeView, ProfilePageView, EditProfilePageView, CreateProfilePageView, LoginView
 from . import views
+from .views import (
+    UserRegisterView,
+    UserEditView,
+    PasswordsChangeView,
+    ProfilePageView,
+    EditProfilePageView,
+    CreateProfilePageView,
+    LoginView,
+)
 
 urlpatterns = [
     path('register/', UserRegisterView.as_view(), name='register'),
