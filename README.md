@@ -60,7 +60,7 @@ All user stories were entered as issues in a GitHub Kanban project, however [Not
 
 ### Wireframes
 
-I created Wireframes to visualize the site's design and act as a template to use when developing the templates. When designing the site I wanted to ensure the site looked and functioned just as well on mobile as larger viewports. Customers may use phones as their primary device to raise and view requests and this also offers flexibility to support staff to work from any device.
+I created Wireframes to visualize the site's design and act as a template to use when developing the templates. When designing the site I wanted to ensure the site looked and functioned just as well on mobile as larger viewports. Customers may use phones as their primary device to access the blog.
 
 ## Colour Scheme
 
@@ -73,10 +73,9 @@ Edit button is provided with a grey color from Bootstrap, Delete button with a r
 
 ## Typography
 
-Bootstrap fonts were used in this project with both fonts selected for their legibility and simplicity.
+Google fonts was used in this project with both fonts selected for their legibility and simplicity.
 
-![Screenshot 2023-02-26 at 18 06 32](https://user-images.githubusercontent.com/105980082/221428277-7be2a0fa-cef5-4745-928d-5260120b2440.png)
-![Screenshot 2023-02-26 at 18 07 50](https://user-images.githubusercontent.com/105980082/221428312-61754e45-77e9-416c-af3c-36b41d4d7383.png)
+Poppins - Use in headings. Cabin - Use in paragraphs and labels.
 
 
 ## Images and Iconography
@@ -390,6 +389,7 @@ No validation errors reported testing with [JSHint](https://jshint.com/).
 ## Bugs
 ### Fixed Bugs
 
+* When admin logs out from admin page redirects to index page instead of home page, however user still logged in.
 
 ### Remaining Bugs
 
@@ -498,13 +498,38 @@ No validation errors reported testing with [JSHint](https://jshint.com/).
 
 # Credits
   ### Online resources
-
+  
+* [Django Documentation](https://www.djangoproject.com/)
+* [Bootstrap Documentation](https://getbootstrap.com/)
+* [Pillow Documentation](https://pillow.readthedocs.io/en/stable/)
+* [Webkit](https://webkit.org/)
+* [LearnDjango](https://learndjango.com/)
+* [Cloudinary](https://cloudinary.com/)
 
 # Code
-  The following credits represent cases where code was adapted or used from external resources. 
 
+  * Code snippet for messages dismissal taken from Code Institute I Think Therefore I Blog project.
+  * Like buttons color and css styles taken from Code Institute I Think Therefore I Blog project.
+  * Card pagination adapted from Code Institute Django Tutorial
+  * Pass request.user from ListView:
+     * CREDIT: TS Jee and nishant - Stack Overflow
+     * URL: https://stackoverflow.com/questions/54069084/passing-request-user-to-a-queryset-in-modelchoicefilter
+  * Set first and last name as required fields for the update form:
+     * CREDIT: andreaspelme - Stack Overflow
+     * URL:  https://stackoverflow.com/a/7683392
+  * Add data to form when using CreateView
+     * CREDIT: Piyush Maurya - Stack Overflow
+     * URL: https://stackoverflow.com/a/45221181
+   * Understanding get absolute url and reverse in Django
+     * CREDIT: CodingEntrepreneurs - Python & Django 3.2 Tutorial Series
+     * URL: Video 44 (get absolute url) & 45 (Django URLs Reverse)
+  
 
 # Media
 
+* Post pictures partially taken from Pexels and partially from my personal camera.
+* The Winter Moments logo was created with [Logo.com](https://app.logo.com/)
 
 # Acknowledgments
+
+As always a huge thank you to my mentor Ronan McLelland and the Code Institute Slack community members for their advice and support during the development of this project.
