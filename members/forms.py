@@ -1,18 +1,30 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
 from blog.models import Profile
+from django.contrib.auth.forms import (
+                                        UserCreationForm,
+                                        UserChangeForm,
+                                        PasswordChangeForm
+                                    )
 
 
 class PasswordChangingForm(PasswordChangeForm):
+    """Password change form for users.
+
+    Provides old, new password and password confirmation.
+    Attributes are added for bootstrap style classes
+    """
+
     old_password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'})
-        )
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'type': 'password'}))
     new_password1 = forms.CharField(
-        max_length=50, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'})
+        max_length=50, widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'type': 'password'})
         )
     new_password2 = forms.CharField(
-        max_length=50, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'})
+        max_length=50, widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'type': 'password'})
         )
 
     class Meta:
@@ -25,6 +37,11 @@ class PasswordChangingForm(PasswordChangeForm):
 
 
 class EditProfileForm(UserChangeForm):
+    """Edit Profile Settings form.
+
+    Form inherits from the User model.
+    """
+
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={'class': 'form-control'})
         )
@@ -50,6 +67,10 @@ class EditProfileForm(UserChangeForm):
 
 
 class SignUpForm(UserCreationForm):
+    """Sign Up form.
+
+    This form will create the user profile, inheriting from User model.
+    """
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={'class': 'form-control'})
         )
@@ -80,6 +101,10 @@ class SignUpForm(UserCreationForm):
 
 
 class ProfilePageForm(forms.ModelForm):
+    """Edit Profile Page form.
+
+    This form inherits from Profile Model Form.
+    """
     class Meta:
         model = Profile
         fields = (
