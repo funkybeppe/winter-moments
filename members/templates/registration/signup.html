@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Register{% endblock %}
 {% block content %}
-<br/>
+<br>
+<!-- Messages using django messages -->
 {% if messages %}
 <div class="container">
     <div class="row">
         <div class="col-12 mt-3 mx-auto text-center" style="max-width: 30rem;">
+            <!-- if there are any message held in the requests session they will be displayed as stacked elements -->
             {% for message in messages %}
             <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                <!-- for each message, use message tags to set 'role' and 'aria-live' attributes -->
                 {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -16,24 +19,25 @@
     </div>
 </div>
 {% endif %}
+<!-- Registration form -->
 <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
     <div class="card-body">
         <h1 class="card-title">Register</h1>
-        <br/>
+        <br>
         <div class="form-text text-white">Already a User? &nbsp;<small><em><a href="{% url 'login' %}">Login</a></em></small></div>
-        <br/>
+        <br>
         <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
                     {{ form.as_p }}
                 </div>
-                <br/>
+                <br>
                 <button class="btn btn-light text-dark">Register <i class="fa-solid fa-pen"></i></button>
             </form>
         </div>
     </div>
 </div>
-<br/><br/>
+<br><br>
     
 {% endblock %}   

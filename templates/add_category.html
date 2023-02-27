@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Add Category{% endblock %}
 {% block content %}
-
+<!-- if user is staff or admin will be able to add a category -->
 {% if user.is_staff %}
-    <br/><br/>
+    <br><br>
     <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
         <div class="card-body">
             <h1 class="card-title">Add Category</h1>
-            <br/>
+            <br>
             <div class="form-group">
                 <form method="POST">
                     {% csrf_token %}
@@ -15,15 +15,12 @@
                         <label for="id_name" class="form-label">Category Name</label>
                         <input type="text" name="name" maxlength="255" required class="form-control" id="id_name">
                     </div>
-                    <br/>
+                    <br>
                     <button class="btn btn-light text-dark">Add Category <i class="fa-solid fa-inbox"></i></button>
                 </form>
             </div>
         </div>
     </div>
-{% else %}  
-
-You're not allowed here!
 
 {% endif %}
 

@@ -2,6 +2,7 @@
 {% block title %}Winter Moments | Categories{% endblock %}
 {% block content %}
 
+<!-- this sections adds the category name as title of page -->
 {% if category_posts %}
 <br/>
 <div class="container-fluid">
@@ -11,6 +12,7 @@
         </div>
     </div>
 </div>
+<!-- if there are posts in the category they will be shown here -->
 {% for post in category_posts %}
 <div class="container-fluid">
     <div class="row">
@@ -19,6 +21,7 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="card shadow mx-auto" style="max-width: 40rem; max-height: 40rem">
                         <div class="card-body">
+                            <!-- this section is to render posts with or without a picture -->
                             {% if post.featured_image %}
                             <div class="image-container">
                                 <img class="card-img-top rounded image-fluid" src="{{ post.featured_image.url }}" style="max-height: 20rem;">
@@ -55,7 +58,8 @@
 
 {% endfor %}
 {% else %}
-<br/>
+<!-- if there arent'any posts in that category, the message below will be shown -->
+<br>
 <div class="container-fluid">
     <div class="row">
         <div class="card col-12 mx-auto bg-dark text-white text-center" style="max-width: 50rem">
@@ -64,5 +68,5 @@
     </div>
 </div>
 {% endif %}
-<br/><br/>
+<br><br>
 {% endblock %}

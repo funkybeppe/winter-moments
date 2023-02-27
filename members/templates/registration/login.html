@@ -3,14 +3,16 @@
 {% block content %}
 {% load static %}
 
-<br/><br/>
+<br><br>
+<!-- Login form -->
 <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
     <div class="card-body">
         <h1 class="card-title">Login</h1>
-        <br/>
+        <br>
         <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
+                <!-- If form contains errors, a message will be displayed -->
                 {% if form.errors %}
                     <div class="alert alert-danger alert-dismissible fade show" id="msg" role="alert" style="max-width: 28rem;">
                         Username or Password not correct. Please try again
@@ -27,7 +29,7 @@
                     <br/>
                     <div class="form-text text-white">Not a User? &nbsp;<small><em><a href="{% url 'register' %}">Register</a></em></small></div>
                 </div>
-                <br/>
+                <br>
                 <button class="btn btn-light text-dark" id="liveToastBtn">Login <i class="fa-solid fa-right-to-bracket"></i></button>
             </form>
         </div>   

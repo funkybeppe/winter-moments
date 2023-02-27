@@ -2,7 +2,7 @@
 {% block title %}Winter Moments | Categories{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-    <br/>  
+    <br>  
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <br/>  
+    <br>  
     {% for item in cat_menu_list %}
     <div class="container-fluid">
         <div class="row">
@@ -22,12 +22,8 @@
         </div>
     </div>        
     {% endfor %}
-
-    <br/>
-    <br/>
-{% else %}
-
-You're not allowed here
+    <br>
+    <br>
 
 {% endif %}
 {% endblock %}

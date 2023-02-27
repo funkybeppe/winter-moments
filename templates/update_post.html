@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Winter Moments | Update Post{% endblock %}
 {% block content %}
-<br/><br/>
-{% if user.is_authenticated %}
+<br><br>
+    <!-- if user is post author will be able to edit post -->
     {% if user.id == post.author.id %}
         <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
             <div class="card-body">
@@ -20,17 +20,8 @@
                 </div>
             </div>
         </div>
-        <br/><br/>
-    {% else %}
-
-        You are not allowed here!
-
-    {% endif %}
-
-{% else %}  
-
-You're not allowed here!
+        <br><br>
     
-{% endif %}
+    {% endif %}
 
 {% endblock %}

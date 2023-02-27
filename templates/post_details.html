@@ -3,7 +3,9 @@
 {% load static %}
 
 {% block content %}
-<br/>
+
+<br>
+<!-- Post card is shown here below -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3" style="width: 100%;">
@@ -13,12 +15,16 @@
                         <div class="card-header bg-light">
                             <div class="row">
                                 <div class="col-2 text-center align-self-start">
+                                    <!-- This code renders the profile picture if the author has one, 
+                                        otherwise will render a default one.
+                                     -->
                                     {% if post.author.profile.profile_picture %}
                                     <img src="{{ post.author.profile.profile_picture.url }}" class="image-fluid rounded-circle" alt="Profile Picture" height=60px width=60px>
                                     {% else %}
                                     <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1677073032/8474278_aiqqhn.png" class="image-fluid rounded-circle" alt="Profile Picture" height=60px width=60px>
                                     {% endif %}
                                 </div>
+                                <!-- link to user profile page -->
                                 <div class="col-10 bg-transparent">
                                     <div class="card-body">
                                         <h3 class="card-text d-inline fs-3 fw-light">
@@ -28,32 +34,29 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- post title -->
                         <div class="card-body">
                             <h3 class="card-body bg-light fw-light text-center fs-4">{{ post.title }}</h4>
                             <img class="card-image-top image-fluid rounded col-lg-12 col-xl-12" src="{{ post.featured_image.url }}" width="100%" style = "max-height: 30rem ;">
                             {% if post.featured_image %}
-                            <br/>
-                            <br/>
+                            <br>
+                            <br>
                             {% endif %}
                             <p class="card-text text-center fs-5 fw-light">{{ post.body | safe }}</p>
-                                {% if user.is_authenticated %}
+                                    <!-- like and comment buttons -->
                                     <form class="d-inline" action="{% url 'like_post' post.pk %}" method="POST">
-                                    
                                         {% csrf_token %}
                                         {% if user in post.likes.all %}
-                                        
                                         <button type="submit" name="post_id" value="{{post.id}}" class="btn-like"><i class="fas fa-heart"></i></button>
                                         {% else %}
                                         <button type="submit" name="post_id" value="{{post.id}}" class="btn-like"><i class="far fa-heart"></i></button>
                                         {% endif %}
                                     </form>
-                                        
-                                {% endif %}
                                     <span class="text-secondary">{{ post.likes.count }}</span>
                                     &nbsp;
                                     <i class="far fa-comment-dots"></i>
                                     <span class="text-secondary">{{ post.comments.count }}</span>
-                            
+                            <!-- comments section -->
                             <p class="card-text"> 
                                 <div class="accordion" id="accordionExample">
                                     <div class="accordion-item">
@@ -62,33 +65,38 @@
                                           Comments
                                         </button>
                                       </h2>
+                                      <!-- collapsable content -->
                                       <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
+                                            <!-- if there's no comment -->
                                             {% if not post.comments.all %}
                                             <strong>No comments yet.</strong><br> 
                                             {% else %}
                                             <small><a href="{% url 'add_comment' post.pk %}">Add Comment</a></small>
-                                            <br/><br/>
+                                            <br><br>
+                                            <!-- if comments are present -->
                                             {% for comment in post.comments.all %}
                                             <small><strong>{{ comment.name }}</strong></small>
-                                            <br/>
+                                            <br>
                                             <small>{{ comment.body }}</small>
-                                            <br/>
+                                            <br>
                                             <small class="text-muted">{{ comment.created_on }}</small>
-                                            <br/><br/>
+                                            <br><br>
                                             {% endfor %}
                                             {% endif %}
                                             <small><a href="{% url 'add_comment' post.pk %}">Add Comment</a></small>
-                                            <br/>
+                                            <br>
                                         </div>
                                       </div>
                                     </div>
                                 </div>
                             </p>
                         </div>
+                        <!-- card bottom section contains edit and delete button, creation date -->
                         <div class="card-footer">
                             <p>{{ post.created_on }}</p>
                                 {% if user.is_authenticated %}
+                                <!-- if the user is the author of the post -->
                                     {% if user.id == post.author.id %}
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
                                         <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary btn-sm me-md-2">Edit</a>
@@ -103,9 +111,7 @@
         </div>
     </div>
 </div>
-<br/><br/>
-
-
+<br><br>
 
 {% endblock %}
 

@@ -3,7 +3,8 @@
 {% load static %}
 {% block content %}
 
-<br/>
+<br>
+<!-- Profile user page -->
 <div class="container-fluid">
   <div class="row">
       <div class="card col-12 text-center text-capitalize bg-dark text-white mx-auto" style="width: auto;">
@@ -11,24 +12,28 @@
       </div>
   </div>
 </div>
-<br/>
+<br>
 <div class="card shadow mb-3 text-center mx-auto bg-dark text-white" style="max-width: 45rem;">
-  <br/>
+  <br>
     <div class="row g-0">
       <div class="col-md-4 mt-2 mb-2">
+        <!-- If user has a custom profile picture -->
         {% if profile_user.profile_picture %}
         <img src="{{ profile_user.profile_picture.url }}" class="img-fluid rounded-circle" alt="Profile Picture" style="max-height: 200px;">
         {% else %}
+        <!-- Default profile picture -->
         <img src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1677074009/user_pfuue2.png" class="img-fluid rounded-circle" alt="Default Profile Picture" style="max-height: 200px;">
         {% endif %}
       </div>
+      <!-- Profile card -->
       <div class="col-md-8">
         <div class="card-body">
           <h4 class="card-title">{{ profile_user }}</h4>
-          <br/>
+          <br>
           <p class="card-text">{{ profile_user.user.first_name }} {{ profile_user.user.last_name }}</p>
           <p class="card-text">{{ profile_user.bio }}</small></p>
-          <br/>
+          <br>
+          <!-- The social icons links will be shown here if user added them to profile details -->
           <p class="card-text h5">
             {% if profile_user.facebook_link %}
             <a href="{{ profile_user.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
@@ -46,5 +51,5 @@
       </div>
     </div>
   </div>
-<br/>
+<br>
 {% endblock %}

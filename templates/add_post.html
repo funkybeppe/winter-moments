@@ -5,25 +5,27 @@
 
 
 {% if user.is_authenticated %}
-    <br/><br/>
+    <br><br>
     <div class="card bg-dark text-white mx-auto" style="max-width: 45rem;">
         <div class="card-body">
             <h1 class="card-title">Add Post</h1>
-            <br/>
+            <br>
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="mb-3">
                         {{ form.as_p }}
                     </div>
-                    <br/>
+                    <br>
                     <button class="btn btn-light text-dark">Post <i class="fa-solid fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
     </div>
-    <br/><br/>
+    <br><br>
 
+    <!-- 
+        This script adds username automatically to post form -->
     <script>
         var name = "{{ user.id }}";
         
@@ -31,11 +33,6 @@
 
     </script>
     
-
-{% else %}  
-
-You're not allowed here!
-
 {% endif %}
 
 {% endblock %}
