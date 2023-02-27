@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
-{% block title %}Winter Moments{% endblock %}
 {% load static %}
-
+{% block title %}Winter Moments{% endblock %}
 {% block content %}
+<!-- 
+  CREDIT: Layout Sections Adapted from Bootstrap Examples
+  URL: https://getbootstrap.com/docs/5.1/examples/ 
+-->
 <!-- Header-->
 <header class="py-5">
     <div class="card border-secondary bg-dark container px-5" style="max-width: 60rem;">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <div class="text-center my-5">
+                    <!-- logo section -->
                     <img class="card-img-top" src="https://res.cloudinary.com/hl3mshpcy/image/upload/v1676374654/logo-no-background_qj7m4q.png" alt="Blog Logo" style="max-width: 300px; max-height: 500px;">
                     <p class="lead text-white mb-4">
                         <br><br>
                         Welcome to our winter sports blog, where we share everything you need to know about hitting the slopes and enjoying the snow!
                     </p>
+                    <!-- login/register buttons -->
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                         <a class="btn btn-outline-light btn-lg px-4 me-sm-3" href="{% url 'login' %}">Login</a>
                         <a class="btn btn-outline-light btn-lg px-4" href="{% url 'register' %}">Register</a>
@@ -23,6 +28,7 @@
         </div>
     </div>
 </header>
+
 <!-- Features section-->
 <section class="card bg-dark text-white py-5 border-secondary" id="features">
     <div class="container px-5 my-3">
