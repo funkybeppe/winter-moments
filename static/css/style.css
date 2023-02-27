@@ -1,3 +1,6 @@
+/* ---- Custom Style Sheet ---- */
+
+/* Variables to by used throughout the style sheet */
 
 ::-webkit-scrollbar {
     display: none;
@@ -6,6 +9,8 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* -- Main Background -- */
 
 .main-bg{
     background-image: url("https://res.cloudinary.com/hl3mshpcy/image/upload/f_webp/v1676911230/pexels-pixabay-235621_bp6nxd.jpg");
@@ -17,11 +22,22 @@ html {
     min-height: 100vh;
 }
 
+/* Links decorations */
+
 a {
     text-decoration: none;
     color: inherit;
 }
 
+.post-link {
+    text-decoration: none;
+}
+
+a:link:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
 
 footer {
   bottom: 0;
@@ -31,6 +47,8 @@ footer {
 .copyright-p {
     font-size: x-small;
 }
+
+/* Buttons */
 
 .btn-like {
     color: #E84610;
@@ -45,41 +63,31 @@ footer {
     border: none;
 }
 
+.white-icon {
+    color: white;
+}
+
+/* Posts */
+
 .author {
     margin-top: 4px;
     text-transform: uppercase;
 }
 
-.category,
-.category-dropdown {
-    text-transform: capitalize;
+.post-image {
+    max-height: 300px;
+    max-width: 300px;
 }
 
 .image-container {
     position: relative;
 }
 
-.post-link {
-    text-decoration: none;
-}
+/* Navigation styles */
 
-.delete-icon,
-.password-icon,
-.update-icon,
-.register-icon,
-.login-icon,
-.logout-icon,
-.profile-icon,
-.plus-icon,
-.post-button,
-.home-icon,
-.category-icon {
-    color: white;
-}
-
-.post-image {
-    max-height: 300px;
-    max-width: 300px;
+.category,
+.category-dropdown {
+    text-transform: capitalize;
 }
 
 .category-card:hover {
@@ -95,7 +103,9 @@ footer {
 
 .nav-link {
     color: hsl(0, 0%, 100%) !important;
-  }
+}
+
+/* Password Change Page */
 
 #id_password {
     display: none;
@@ -105,10 +115,8 @@ footer {
     display: none;
 }
 
+/* Custom Error Page */
+
 .max-w-600 {
     max-width: 600px;
-}
-
-a:link:hover {
-    text-decoration: underline;
 }
