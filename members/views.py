@@ -41,7 +41,7 @@ class LoginView(FormView):
         response = super().form_invalid(form)
         messages.add_message(
             self.request, messages.ERROR, "Username or Password invalid. Please try again."
-            )
+        )
         return response
 
 
@@ -138,7 +138,7 @@ class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
         response = super().form_valid(form)
         messages.add_message(
             self.request, messages.SUCCESS, "Profile details updated successfully"
-            )
+        )
         return response
 
 
