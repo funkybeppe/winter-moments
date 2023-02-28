@@ -364,6 +364,62 @@ Manual testing occurred regularly throughout local development, making use of st
 
 #### Tests Cases
 
+##### Registration
+| Testing | Steps | Expected Outcome | Results |
+| ------- | ----- | ---------------- | ------- |
+| Form Validation | Try to submit empty form | Form validation will prompt for user action | PASS |
+| Form Validation | Try to submit invalid email address | Form validation will prompt for user action | PASS |
+| Form Validation | Try to submit username that is already taken | Form validation will prompt for user action | PASS |
+| Form Validation | Try to submit non-complex, not matching passwords | Form validation will prompt for user action | PASS |
+| Form Validation | Remove the required attribute using browser console tools and submit with no first or last name but other valid fields| Form validation will prompt for user action | PASS |
+| Registration Success | Enter unique, valid information for all fields | User is notified with a success message and redirected to the email verification page. Verification email is send to email address entered in registration form. Account can be seen in the Django admin panel | PASS |
+
+##### Create and Edit Posts
+| Testing | Steps | Expected Outcome | Results |
+| ------- | ----- | ---------------- | ------- |
+| Text Field Validation | Try to submit empty form |  | PASS |
+| Text Field Validation | Enter a description and title with more characters than the required amount and submit the form | Form validation will prompt for user action | PASS |
+| Image Field Validation | Try to submit a video instead of a picture | Form validation will notify the user the image format is not valid or corrupted | PASS |
+| Image Field Validation | Enter valid information for all fields | Post submitted, user redirected to home page, post matches all informations as entered in the form | PASS |
+
+##### Post Deletion
+| Testing | Steps | Expected Outcome | Results |
+| ------- | ----- | ---------------- | ------- |
+| Delete button visible on posts| Log in as user, navigate to a post of your creation detail view and ensure delete button is visible | Delete button visible | PASS |
+| Delete button redirects to delete post page| When looged in as user on a post of your creation, click delete button and a deletion confirmation page will be shown | Delete page redirect with deletion confirmation message and delete button | PASS |
+| Others users posts cannot be deleted | Log in as user, navigate to a post that is not yours, ensure there's no delete button visible | Only edit and delete buttons are visible in the post details of your creations | PASS |
+| Post can be deleted | Click the deletion confirmation button in the deletion page | Post is deleted, post images (if any) are removed from Cloudinary. User is redirected to the post list view | PASS |
+
+##### Navigation
+| Testing | Steps | Expected Outcome | Results |
+| ------- | ----- | ---------------- | ------- |
+| Users can view their posts | Navigate to a post detail URL | Post detail is visible | PASS |
+| Users can view other users posts | Navigate to a post detail URL that is not of your creation | Post detail is visible | PASS |
+| Users can view their profile page | Navigate to my profile page | Profile page is visible and showing only the data user added| PASS |
+| Users can view other users profile page | Navigate to a user profile page by clicking on their name on a post | Profile page is visible and showing only the data user added| PASS |
+| Categories | Navigate to Category page | Category list is displayimng only the categories added by admin | Categories are displayed in a dropdown menu | PASS |
+| Posts in Categories | Navigate to a category in the categories list | Only posts with the same shared category should be listed | Only posts with the same category are listed | PASS |
+| Empty Category selection | Navigate to a category in the categories list | A message should be displayed in case of no posts in the selected category | A message is displayed saying "No Posts yet in this category" | PASS |
+
+##### Profile View and Edit
+| Testing | Steps | Expected Outcome | Results |
+| ------- | ----- | ---------------- | ------- |
+| Form Validation | Change first and last name and try to submit | Form validation will prompt for user action | PASS |
+| Form Validation | Enter username that is already taken | Form validation will prompt for user action | PASS |
+| Form Validation | Enter unique | Valid information for all fields | PASS - User is notified with a message and redirected profile detail page |
+| Form Validation | Change password and try to submit with empty fields | Form validation will prompt for user action | PASS |
+| Form Validation | Change password and try to submit with wrong fields | Form validation will prompt for user action | PASS |
+| Form Validation | Change password and with correct details and submit | User is redirected to a success page displaying a message confirming that password has been changed | PASS |
+
+##### Browser Tests
+| Testing | Steps | Expected Outcome | Results |
+| ------- | ----- | ---------------- | ------- |
+| Safari Navigation Test | Navigate to website on Safari browser | All the content is displayed correctly and responsive | PASS |
+| Safari Navigation Test Mobile | Navigate to website on Safari browser from mobile device | All the content is displayed correctly and responsive | PASS |
+| Chrome Navigation Test | Navigate to website on Chrome browser | All the content is displayed correctly and responsive | PASS |
+| Chrome Navigation Test Mobile | Navigate to website on Chrome browser from mobile device | All the content is displayed correctly and responsive | PASS |
+| Firefox Navigation Test | Navigate to website on Firefox browser | All the content is displayed correctly and responsive | PASS |
+| Firefox Navigation Test Mobile | Navigate to website on Firefox browser mobile | All the content is displayed correctly and responsive | PASS |
 
 ### Code Validation
 
