@@ -55,19 +55,52 @@ The initial aims of the project which formed the basis for user story creation w
 
 All user stories were entered as issues in a GitHub Kanban project, however [Notion](https://notion.so) software was used during development and all the issues were added in later.
 
+## CRUD Functionality
+
+* Winter Moments handles data with full CRUD Functionality:
+
+* Create - Users can create, account, profile, post a blog
+
+* Read - Users can view the posts of other users and their own.
+
+* Update - Users can update their blog posts with new context
+
+* Delete - Users can delete their own blog posts
+
 
 ## Design
 
 ### Wireframes
 
-I created Wireframes to visualize the site's design and act as a template to use when developing the templates. When designing the site I wanted to ensure the site looked and functioned just as well on mobile as larger viewports. Customers may use phones as their primary device to access the blog.
+I created Wireframes to visualize the site's design and act as a template to use when developing the templates. When designing the site I wanted to ensure the site looked and functioned just as well on mobile as larger viewports. Customers may use phones as their primary device to access the blog
+
+
+<img width="669" alt="Screenshot 2023-02-28 at 10 27 14" src="https://user-images.githubusercontent.com/105980082/221827873-e2bcb836-0b87-4da1-a2a7-d0050159cb11.png">
+
+<img width="424" alt="Screenshot 2023-02-28 at 10 27 28" src="https://user-images.githubusercontent.com/105980082/221827912-50be9bbd-6617-45c0-93f6-d9a01c312bcd.png">
+
+<img width="661" alt="Screenshot 2023-02-28 at 10 27 38" src="https://user-images.githubusercontent.com/105980082/221827926-a158cfe1-ef47-4348-8022-2e3c3e9c0c0a.png">
+
+<img width="392" alt="Screenshot 2023-02-28 at 10 28 02" src="https://user-images.githubusercontent.com/105980082/221827962-4664c622-ef93-4a57-8374-65655d2a50ce.png">
+
+<img width="670" alt="Screenshot 2023-02-28 at 10 28 12" src="https://user-images.githubusercontent.com/105980082/221827987-f6d67c04-6918-450e-8131-7770ba1b748f.png">
+
+<img width="390" alt="Screenshot 2023-02-28 at 10 28 25" src="https://user-images.githubusercontent.com/105980082/221828011-2038ee3f-d9a6-4646-8416-a80f5b8cdcc7.png">
+
+![Screenshot 2023-02-28 at 10 28 58](https://user-images.githubusercontent.com/105980082/221828037-f280bd70-7420-4c64-9638-178cf31ec270.png)
+
+![Screenshot 2023-02-28 at 10 29 09](https://user-images.githubusercontent.com/105980082/221828084-bfd45db6-eb7a-4336-ac34-698f7e4fe772.png)
+
 
 ## Colour Scheme
 
 Colours used throughout the site were kept to a minimum to keep its focus clear, allowing the blog posts to stand out.
-The website uses Bootstrap dark theme for Navigation, Footer and forms.
-Post cards are in a white shade and text in dark, "View Post" buttons in dark theme color to provide contrast.
-Edit button is provided with a grey color from Bootstrap, Delete button with a red color to stand out.
+
+* The website uses Bootstrap dark theme for Navigation, Footer and forms.
+
+* Post cards are in a white shade and text in dark, "View Post" buttons in dark theme color to provide contrast.
+
+* Edit button is provided with a grey color from Bootstrap, Delete button with a red color to stand out.
 
 <img width="934" alt="Screenshot 2023-02-26 at 15 00 19" src="https://user-images.githubusercontent.com/105980082/221435116-4069fa00-c11c-417d-bfba-1b726bdb8f24.png">
 
@@ -561,6 +594,7 @@ No validation errors reported testing with [JSHint](https://jshint.com/).
 * [Webkit](https://webkit.org/)
 * [LearnDjango](https://learndjango.com/)
 * [Cloudinary](https://cloudinary.com/)
+* [Code institute](https://learn.codeinstitute.net/) for Django Tutorial modules and read me template
 
 # Code
 
